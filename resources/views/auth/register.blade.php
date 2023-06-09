@@ -45,45 +45,46 @@
                         <span class="db"><img src="dashboard/assets/images/logo.png" style="width: 200px" alt="logo" /></span>
                     </div>
                     <!-- Form -->
-                    <form class="form-horizontal m-t-20" action="index.html">
+                    <form class="form-horizontal m-t-20" action="/register" method="POST">
+                        @csrf
                         <div class="row p-b-30">
                             <div class="col-12">
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text bg-success text-white" id="basic-addon1"><i class="ti-user"></i></span>
                                     </div>
-                                    <input type="text" class="form-control form-control-lg" placeholder="Nama Pengguna" aria-label="Username" aria-describedby="basic-addon1" required>
+                                    <input type="text" name="nama_user" class="form-control form-control-lg" placeholder="Nama Pengguna" aria-label="Username" aria-describedby="basic-addon1" required>
                                 </div>
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text bg-success text-white" id="basic-addon1"><i class="ti-user"></i></span>
                                     </div>
-                                    <input type="text" class="form-control form-control-lg" placeholder="Nama Tempat Usaha" aria-label="Username" aria-describedby="basic-addon1" required>
+                                    <input type="text" name="perusahaan_user" class="form-control form-control-lg" placeholder="Nama Tempat Usaha" aria-label="Username" aria-describedby="basic-addon1" required>
                                 </div>
                                 <!-- email -->
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text bg-danger text-white" id="basic-addon1"><i class="ti-email"></i></span>
                                     </div>
-                                    <input type="text" class="form-control form-control-lg" placeholder="Email" aria-label="Username" aria-describedby="basic-addon1" required>
+                                    <input type="email" name="email_user" class="form-control form-control-lg" placeholder="Email" aria-label="Username" aria-describedby="basic-addon1" required>
                                 </div>
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text bg-success text-white" id="basic-addon1"><i class="ti-user"></i></span>
                                     </div>
-                                    <input type="text" class="form-control form-control-lg" placeholder="No.Telepon" aria-label="Username" aria-describedby="basic-addon1" required>
+                                    <input type="tel" name="notelp_user" class="form-control form-control-lg" placeholder="No.Telepon" aria-label="Username" aria-describedby="basic-addon1" required>
                                 </div>
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text bg-success text-white" id="basic-addon1"><i class="ti-user"></i></span>
                                     </div>
-                                    <input type="text" class="form-control form-control-lg" placeholder="Alamat" aria-label="Username" aria-describedby="basic-addon1" required>
+                                    <input type="text" name="alamat_user" class="form-control form-control-lg" placeholder="Alamat" aria-label="Username" aria-describedby="basic-addon1" required>
                                 </div>
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text bg-warning text-white" id="basic-addon2"><i class="ti-pencil"></i></span>
                                     </div>
-                                    <input type="text" class="form-control form-control-lg" placeholder="Password Akun" aria-label="Password" aria-describedby="basic-addon1" required>
+                                    <input type="password" name="password_user" class="form-control form-control-lg" placeholder="Password Akun" aria-label="Password" aria-describedby="basic-addon1" required>
                                 </div>
                                 {{-- <div class="input-group mb-3">
                                     <div class="input-group-prepend">
