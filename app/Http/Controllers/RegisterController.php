@@ -9,6 +9,10 @@ use Illuminate\Support\Facades\Hash;
 class RegisterController extends Controller
 {
     public function index(){
+        //mengecek jika user masih login
+        if(auth()->check()) {
+            return redirect('/index');
+        }
         return view('auth.register');
     }
 

@@ -10,6 +10,10 @@ use Illuminate\Support\Facades\Hash;
 class LoginController extends Controller
 {
     public function index(){
+        //mengecek jika user masih login
+        if(auth()->check()) {
+            return redirect('/index');
+        }
         return view('auth.login');
     }
 
@@ -19,15 +23,18 @@ class LoginController extends Controller
             'password_user' => 'required',
         ]);
 
-        // if (Auth::attempt($credentials)) {
-        //     $request->session()->regenerate();
-        //     return redirect()->intended('/index');
-        // }
         if (Auth::attempt(['email_user' => $credentials['email_user'],'password' => $credentials['password_user']])){
             $request->session()->regenerate();
             return redirect()->intended('/index');
         }
 
         return back()->with('loginError', 'Login Gagal! Silahkan Cek Email dan Password Anda');
+    }
+
+    public function logout(Request $request){
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect('/');
     }
 }

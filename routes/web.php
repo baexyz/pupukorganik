@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
@@ -19,12 +20,16 @@ Route::get('/', function () {
     return view('landpage.landingpage');
 });
 
-Route::get('/index', function () {       
-    return view('layouts.index');
+Route::middleware('auth:web')->group(function () {
+    // Route::get('/index', function () {       
+    //     return view('layouts.index');
+    // });
+    Route::get('/index', [HomeController::class, 'index']);
+    Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 });
 
 Route::get('/register', [RegisterController::class, 'index']);
 Route::post('/register', [RegisterController::class, 'store']);
 
-Route::get('/login', [LoginController::class, 'index']);
+Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'authenticate']);
