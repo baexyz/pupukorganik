@@ -7,7 +7,8 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
     public function index(Request $request){
-        //Get user info
+        
+        //Mendapatkan Nama User untuk ditampilkan di Home
         $user = $request->user();
         return view('layouts.index', [
             'user' => $user

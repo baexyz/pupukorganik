@@ -16,7 +16,9 @@ class RegisterController extends Controller
         return view('auth.register');
     }
 
-    public function store(Request $request){
+    public function store(Request $request)
+    {
+        #Fungsi validasi 
         $validatedData = $request->validate([
             'nama_user' => 'required|max:255',
             'perusahaan_user' => 'required|max:255',
@@ -26,6 +28,7 @@ class RegisterController extends Controller
             'password_user' => 'required',
         ]);
 
+        #enkripsi password 
         $validatedData['password_user'] = Hash::make($validatedData['password_user']);
 
         User::create($validatedData);

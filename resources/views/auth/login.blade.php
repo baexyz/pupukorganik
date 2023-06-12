@@ -40,6 +40,8 @@
         <!-- ============================================================== -->
         <div class="auth-wrapper d-flex no-block justify-content-center align-items-center bg-dark">
             <div class="auth-box bg-dark border-top border-secondary">
+
+
                 @if(session()->has('success'))
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
                     <strong>{{ session('success') }}</strong>
@@ -57,12 +59,27 @@
                     </button>
                 </div>
                 @endif
+
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                         <ul>
+                            @foreach ($errors->all() as $error)
+                                  <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+
+
                 <div id="loginform">
                     <div class="text-center p-t-20 p-b-20">
                         <span class="db"><img src="dashboard/assets/images/logo.png" style="width: 200px" alt="logo" /></span>
                     </div>
+                    
                     <!-- Form -->
+
                     <form class="form-horizontal m-t-20" id="loginform" action="/login" method="POST">
+
                         @csrf
                         <div class="row p-b-30">
                             <div class="col-12">

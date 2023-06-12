@@ -23,7 +23,8 @@ class LoginController extends Controller
             'password_user' => 'required',
         ]);
 
-        if (Auth::attempt(['email_user' => $credentials['email_user'],'password' => $credentials['password_user']])){
+        if (Auth::attempt(['email_user' => $credentials['email_user'],'password' => $credentials['password_user']]))
+        {
             $request->session()->regenerate();
             return redirect()->intended('/index');
         }
