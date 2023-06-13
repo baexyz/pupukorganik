@@ -10,8 +10,13 @@ class HomeController extends Controller
         
         //Mendapatkan Nama User untuk ditampilkan di Home
         $user = $request->user();
-        return view('layouts.index', [
+        // return view('layouts.index', [
+        //     'user' => $user
+        // ]);
+
+        return view('layouts.dashboard', [
             'user' => $user
         ]);
+    
     }
 }

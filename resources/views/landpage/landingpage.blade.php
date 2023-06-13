@@ -54,7 +54,7 @@
           <li><a class="nav-link scrollto" href="#why-us">Pemakaian</a></li>
           {{-- <li><a class="nav-link   scrollto" href="#portfolio">Galeri</a></li> --}}
           <li><a class="nav-link scrollto" href="#contact">Kontak</a></li>
-          <li><a class="getstarted scrollto" href="">Log In</a></li>
+          <li><a class="getstarted scrollto" href="{{ route('login') }}">Log In</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
