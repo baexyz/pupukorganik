@@ -33,3 +33,24 @@ Route::post('/register', [RegisterController::class, 'store']);
 
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'authenticate']);
+
+Route::get('/tabel', function () {       
+    return view('layouts.tabel');
+});
+
+
+Route::get('/tabel1', function () {       
+    return view('layouts.tabel1');
+});
+
+Route::get('/tabel2', function () {       
+    return view('layouts.tabel2');
+});
+
+Route::get('/tabel3', function () {       
+    return view('layouts.tabel3');
+});
+
+Route::get('/tabel4', function () {       
+    return view('layouts.tabel4');
+});
