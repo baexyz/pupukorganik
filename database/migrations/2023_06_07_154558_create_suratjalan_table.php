@@ -22,6 +22,7 @@ return new class extends Migration
             $table->date('waktu_penerimaan_suratjalan');
             $table->string('tipe_kendaraan_suratjalan',30);
             $table->string('noplat_suratjalan',10);
+            $table->string('bukti_suratjalan');
             $table->boolean('status_suratjalan');
             $table->timestamps();
         });
