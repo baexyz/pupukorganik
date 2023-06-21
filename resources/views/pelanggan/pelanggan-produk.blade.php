@@ -1,5 +1,6 @@
 @extends('layouts.dashboard')
 
+@section('title', 'Produk')
 
 @section('container')
     
@@ -20,42 +21,19 @@
                     </tr>
                   </thead>
                   <tbody>
-
+                  @foreach ($produk as $item)
                     <tr>
-                      <td>Foto Produk 1</td>
-                      <td>Pupuk Lumba-Lumba Kemasan 5Kg</td>
-                      <td>5.00 Kg</td>
-                      <td>25000</td>
+                      <td>Foto Produk {{ $loop->iteration }}</td>
+                      <td>{{ $item->nama_produk }}</td>
+                      <td>{{ $item->berat_produk }} Kg</td>
+                      <td>{{ $item->harga_produk }}</td>
 
                       {{-- BUTTON PESAN UNTUK MENAMBAHKAN PRODUK KE DALAM KERANJANG --}}
                       <td> 
                         <button type="button" class="btn btn-success btn-lg">Pesan</button>  
                       </td>
                     </tr>
-
-                    <tr>
-                      <td>Foto Produk 2</td>
-                      <td>Pupuk Lumba-Lumba Kemasan 10Kg</td>
-                      <td>10.00 Kg</td>
-                      <td>45000</td>
-
-                      {{-- BUTTON PESAN UNTUK MENAMBAHKAN PRODUK KE DALAM KERANJANG --}}
-                      <td> 
-                        <button type="button" class="btn btn-success btn-lg">Pesan</button>  
-                      </td>
-                    </tr>
-
-                    <tr>
-                        <td>Foto Produk 3</td>
-                        <td>Gunung Argopuro Kemasan 25Kg</td>
-                        <td>25.00 Kg</td>
-                        <td>105000</td>
-  
-                        {{-- BUTTON PESAN UNTUK MENAMBAHKAN PRODUK KE DALAM KERANJANG --}}
-                        <td> 
-                          <button type="button" class="btn btn-success btn-lg">Pesan</button>  
-                        </td>
-                      </tr>
+                  @endforeach
                   </tbody>
             </table>
         </div>

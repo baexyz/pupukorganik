@@ -4,6 +4,7 @@ use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ProdukController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +27,7 @@ Route::middleware('auth:web')->group(function () {
     // });
     Route::get('/index', [HomeController::class, 'index']);
     Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+    Route::get('/produk', [ProdukController::class, 'index']);
 });
 
 Route::get('/register', [RegisterController::class, 'index']);
