@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('pembayaran', function (Blueprint $table) {
             $table->id('id_pembayaran');
 
-            $table->foreignId('id_checkout')->constrained('checkout','id_checkout');
+            $table->foreignId('id_pemesanan')->constrained('checkout','id_checkout');
 
             $table->timestamp('waktu_pembayaran');
             $table->boolean('status_pembayaran');

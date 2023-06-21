@@ -5,6 +5,8 @@
 <div class="row">
     <div class="col-12">
         
+        <button type="button" class="btn btn-success btn-lg">+Tambah Produk</button>
+
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title m-b-0">Keranjang</h5>

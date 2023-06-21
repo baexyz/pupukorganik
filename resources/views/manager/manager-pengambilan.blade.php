@@ -15,7 +15,6 @@
                   <thead>
                       <tr>
                           <th>ID Pemesanan</th>
-                          <th>Nama</th>
                           <th>Pesanan</th>
                           <th>Kuantitas</th>
                           <th>Total Harga</th>
@@ -26,7 +25,6 @@
                   <tbody>
                       <tr>
                         <th scope="row">AB3123</th>
-                        <td> Rusdi </td>
                         <td>Pupuk organik Kemasan 5Kg</td>
                         <td>10</td>
                         <td>450000</td>

@@ -5,6 +5,8 @@
 
 <div class="row">
   <div class="col-12">
+
+    <button type="button" class="btn btn-success">+ Tambah Pegawai</button>
       
     <div class="card">
       <div class="card-body">
@@ -17,6 +19,7 @@
                 <th scope="col">Nama</th>
                 <th scope="col">No. Telepon</th>
                 <th scope="col">E-mail</th>
+                <th scope="col">Action</th>
               </tr>
             </thead>
   
@@ -28,18 +31,12 @@
                   <td>Rusdy</td>
                   <td>0869696969</td>
                   <td>@rusdi@homok.com</td>
-                </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>Rusdy</td>
-                  <td>0869696969</td>
-                  <td>@rusdi@homok.com</td>
-                </tr>
-                <tr>
-                  <th scope="row">3</th>
-                  <td>Rusdy</td>
-                  <td>0869696969</td>
-                  <td>@rusdi@homok.com</td>
+                  <td>
+                    {{-- EDIT PEGAWAI --}}
+                    <button type="button" class="btn btn-warning">Edit</button>
+                    {{-- HAPUS PEGAWAI --}}
+                    <button type="button" class="btn btn-danger">Hapus</button>
+                  </td>
                 </tr>
             </tbody>
       </table>

@@ -15,10 +15,11 @@
                             <tr>
                                 <th>No</th>
                                 <th>ID Pemesanan</th>
-                                <th>Nama Pemesan</th>
                                 <th>Produk</th>
                                 <th>Kuantitas</th>
-                                <th>Total Harga</th>
+                                <th>Nama Pemesan</th>
+                                <th>Perusahaan</th>
+                                <th>Waktu Penerimaan</th>
                                 <th>Status</th>
                             </tr>
                         </thead>
@@ -26,15 +27,17 @@
                             <tr>
                                 <td>1</td>
                                 <td>AB4123</td>
-                                <td>Rusdi</td>
                                 <td>Pupuk Lumba-Lumba Kemasan 5Kg</td>
                                 <td>10</td>
                                 <td>Rp450000</td>
+                                <td>Anton Wicaksono</td>
+                                <td>CV Jaya Makmur</td>
+                                <td> 13/02/2023 (11:20:49)</td>
                                 <td>
                                     {{-- JIKA BELUM DIAMBIL --}}
-                                    <button type="button" class="btn btn-warning btn-lg">Belum Lunas</button>
+                                    <button type="button" class="btn btn-warning btn-lg">Belum Diambil</button>
                                     {{-- JIKA SUDAH DIAMBIL --}}
-                                    <button type="button" class="btn btn-success btn-lg">Lunas</button>
+                                    <button type="button" class="btn btn-success btn-lg">Sudah Diambil</button>
                                 </td>  
                             </tr>
 

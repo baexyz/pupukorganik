@@ -15,9 +15,9 @@
                             <tr>
                                 <th>ID Pemesanan</th>
                                 <th>Nama</th>
+                                <th>Perusahaan</th>
                                 <th>Pesanan</th>
                                 <th>Kuantitas</th>
-                                <th>Total Harga</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -25,9 +25,9 @@
                             <tr>
                                 <th scope="row">AB3123</th>
                                 <td> Rusdi </td>
+                                <td>CV Jaya Makmur</td>
                                 <td>Pupuk organik Kemasan 5Kg</td>
                                 <td>10</td>
-                                <td>450000</td>
                                 <td>
                                   {{-- JIKA BELUM INPUT --}}
                                   <button type="button" class="btn btn-warning btn-lg">Input</button>
