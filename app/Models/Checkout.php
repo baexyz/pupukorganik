@@ -9,7 +9,7 @@ class Checkout extends Model
 {
     use HasFactory;
 
-    protected $table = 'id_checkout';
+    protected $table = 'checkout';
     protected $primaryKey = 'id_checkout';
     protected $guarded = ['id_checkout'];
 

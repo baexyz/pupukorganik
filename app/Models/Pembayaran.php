@@ -9,7 +9,7 @@ class Pembayaran extends Model
 {
     use HasFactory;
 
-    protected $table = 'id_pembayaran';
+    protected $table = 'embayaran';
     protected $primaryKey = 'id_pembayaran';
     protected $guarded = ['id_pembayaran'];
 

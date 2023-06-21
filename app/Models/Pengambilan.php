@@ -9,7 +9,7 @@ class Pengambilan extends Model
 {
     use HasFactory;
 
-    protected $table = 'id_pengambilan';
+    protected $table = 'pengambilan';
     protected $primaryKey = 'id_pengambilan';
     protected $guarded = ['id_pengambilan'];
 
