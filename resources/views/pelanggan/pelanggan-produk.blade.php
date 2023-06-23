@@ -2,34 +2,50 @@
 
 @section('title', 'Produk')
 
+@section('pagetitle')
+<div class="page-breadcrumb">
+  <div class="row">
+      <div class="col-12 d-flex no-block align-items-center">
+          <h2 class="page-title">Produk</h2>
+      </div>
+  </div>
+</div>
+@endsection
+
 @section('container')
     
+
 <div class="row">
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title m-b-0">Silahkan pilih produk yang akan dipesan</h5>
+                <h3 class="card-title m-b-0" >Silahkan pilih produk yang akan dipesan</h3>
             </div>
+
             <table class="table">
                   <thead>
-                    <tr>
-                      <th scope="col">Foto Produk</th>
-                      <th scope="col">Produk</th>
-                      <th scope="col">Berat</th>
-                      <th scope="col">Harga</th>
-                      <th scope="col">Pesan</th>
+                    <tr style="color: rgb(50, 146, 63)">
+                      <th scope="col"><h4>Foto Produk</h4></th>
+                      <th scope="col"><h4>Produk</h4></th>
+                      <th scope="col"><h4>Deskripsi Produk</b></th>
+                      <th scope="col"><h4>Berat</h4></th>
+                      <th scope="col"><h4>Harga</h4></th>
+                      <th scope="col"><h4>Pesan</h4></th>
                     </tr>
                   </thead>
                   <tbody>
                   @foreach ($produk as $item)
                     <tr>
-                      <td>Foto Produk {{ $loop->iteration }}</td>
-                      <td>{{ $item->nama_produk }}</td>
-                      <td>{{ $item->berat_produk }} Kg</td>
-                      <td>{{ $item->harga_produk }}</td>
-
-                      {{-- BUTTON PESAN UNTUK MENAMBAHKAN PRODUK KE DALAM KERANJANG --}}
-                      <td> 
+                      <td style="width: 30%">
+                        <img src="dashboard/assets/images/produk1.png" alt="user" style="width: 100%" />
+                      </td>
+                      <td style="width: 15%">{{ $item->nama_produk }}</td>
+                      <td style="width: 20%">{{ $item->deskripsi_produk }}</td>
+                      <td style="width: 10%">{{ $item->berat_produk }} Kg</td>
+                      <td style="width: 10%">{{ $item->harga_produk }}</td>
+                      
+                      <td style="width: 15%"> 
+                        {{-- BUTTON PESAN UNTUK MENAMBAHKAN PRODUK KE DALAM KERANJANG --}}
                         <button type="button" class="btn btn-success btn-lg">Pesan</button>  
                       </td>
                     </tr>
