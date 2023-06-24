@@ -28,6 +28,10 @@ Route::middleware('auth:web,pegawai')->group(function () {
     Route::get('/index', [HomeController::class, 'index']);
     Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
     Route::get('produk/delete/{id}', [ProdukController::class, 'delete']);
+    Route::get('produk/edit/{id}', [ProdukController::class, 'edit']);
+    Route::post('produk/edit/{id}', [ProdukController::class, 'update']);
+    Route::get('produk/tambah', [ProdukController::class, 'tambah']);
+    Route::post('produk/tambah', [ProdukController::class, 'tambah']);
     Route::get('/produk', [ProdukController::class, 'index']);
 });
 
