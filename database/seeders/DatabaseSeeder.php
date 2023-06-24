@@ -26,7 +26,7 @@ class DatabaseSeeder extends Seeder
             'berat_produk' => 5.0,
             'harga_produk' => 50000,
             'deskripsi_produk' => 'Pupuk organik dengan kandungan nutrisi lengkap untuk tanaman Anda.',
-            'foto_produk' => '/img/produk/produk-1.jpg',
+            'foto_produk' => '/dashboard/assets/images/produk1.png',
         ]);
             
         Produk::create([
@@ -34,7 +34,7 @@ class DatabaseSeeder extends Seeder
         'berat_produk' => 2.5,
         'harga_produk' => 75000,
         'deskripsi_produk' => 'Pupuk dengan komposisi NPK seimbang untuk pertumbuhan optimal tanaman.',
-        'foto_produk' => '/img/produk/produk-2.jpg',
+        'foto_produk' => '/dashboard/assets/images/produk1.png',
         ]);
         
         Produk::create([
@@ -42,7 +42,7 @@ class DatabaseSeeder extends Seeder
         'berat_produk' => 10.0,
         'harga_produk' => 30000,
         'deskripsi_produk' => 'Pupuk organik dari kotoran ayam untuk meningkatkan kesuburan tanah.',
-        'foto_produk' => '/img/produk/produk-3.jpg',
+        'foto_produk' => '/dashboard/assets/images/produk1.png',
         ]);
         
         Produk::create([
@@ -50,7 +50,7 @@ class DatabaseSeeder extends Seeder
         'berat_produk' => 1.0,
         'harga_produk' => 25000,
         'deskripsi_produk' => 'Pupuk cair berkualitas tinggi untuk menyuburkan daun dan merangsang pertumbuhan tanaman.',
-        'foto_produk' => '/img/produk/produk-4.jpg',
+        'foto_produk' => '/dashboard/assets/images/produk1.png',
         ]);
         
         Produk::create([
@@ -58,7 +58,7 @@ class DatabaseSeeder extends Seeder
         'berat_produk' => 3.0,
         'harga_produk' => 40000,
         'deskripsi_produk' => 'Pupuk cair yang terbuat dari bahan alami untuk memperkaya tanah dan merangsang pertumbuhan akar.',
-        'foto_produk' => '/img/produk/produk-5.jpg',
+        'foto_produk' => '/dashboard/assets/images/produk1.png',
         ]);
         
         Produk::create([
@@ -66,7 +66,7 @@ class DatabaseSeeder extends Seeder
         'berat_produk' => 15.0,
         'harga_produk' => 60000,
         'deskripsi_produk' => 'Pupuk organik yang dihasilkan dari kotoran sapi untuk meningkatkan kesuburan tanah.',
-        'foto_produk' => '/img/produk/produk-6.jpg',
+        'foto_produk' => '/dashboard/assets/images/produk1.png',
         ]);
         
         Produk::create([
@@ -74,7 +74,7 @@ class DatabaseSeeder extends Seeder
         'berat_produk' => 0.5,
         'harga_produk' => 80000,
         'deskripsi_produk' => 'Pupuk dengan kandungan mikroorganisme yang menguntungkan bagi pertumbuhan tanaman.',
-        'foto_produk' => '/img/produk/produk-7.jpg',
+        'foto_produk' => '/dashboard/assets/images/produk1.png',
         ]);
         
         Produk::create([
@@ -82,7 +82,7 @@ class DatabaseSeeder extends Seeder
         'berat_produk' => 2.0,
         'harga_produk' => 35000,
         'deskripsi_produk' => 'Pupuk khusus untuk merangsang pembentukan dan pertumbuhan buah pada tanaman.',
-        'foto_produk' => '/img/produk/produk-8.jpg',
+        'foto_produk' => '/dashboard/assets/images/produk1.png',
         ]);
         
         Produk::create([
@@ -90,7 +90,7 @@ class DatabaseSeeder extends Seeder
         'berat_produk' => 0.8,
         'harga_produk' => 20000,
         'deskripsi_produk' => 'Pupuk dengan kandungan zat besi untuk mencegah daun tanaman menguning.',
-        'foto_produk' => '/img/produk/produk-9.jpg',
+        'foto_produk' => '/dashboard/assets/images/produk1.png',
         ]);
         
         Produk::create([
@@ -98,7 +98,7 @@ class DatabaseSeeder extends Seeder
         'berat_produk' => 5.0,
         'harga_produk' => 45000,
         'deskripsi_produk' => 'Pupuk organik berupa serbuk kompos untuk meningkatkan kesuburan tanah.',
-        'foto_produk' => '/img/produk/produk-10.jpg',
+        'foto_produk' => '/dashboard/assets/images/produk1.png',
         ]);
 
         Pegawai::create([

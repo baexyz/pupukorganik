@@ -31,7 +31,7 @@
                   @foreach ($produk as $item)
                     <tr>
                       <td style="width: 30%">
-                        <img src="dashboard/assets/images/produk1.png" alt="user" style="width: 100%" />
+                        <img src="{{ $item->foto_produk }}" alt="user" style="width: 100%" />
                       </td>
                       <td style="width: 15%">{{ $item->nama_produk }}</td>
                       <td style="width: 20%">{{ $item->deskripsi_produk }}</td>
