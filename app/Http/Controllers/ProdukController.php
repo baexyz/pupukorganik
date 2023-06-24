@@ -76,19 +76,45 @@ class ProdukController extends Controller
             if ($request->isMethod('get')) {
                 //Menampilkan halaman edit produk beserta valuenya
                 $produk = Produk::find($id);
-                return view('manager.manager-form-tambah-produk', [
+                return view('manager.manager-form-edit-produk', [
                     'user' => $user,
                     'produk' => $produk
                 ]);
             }
-            if ($request->isMethod('post')) {}
+            if ($request->isMethod('post')) {
+                $data = $request->validate([
+                    'nama_produk' => 'required',
+                    'berat_produk' => 'required',
+                    'harga_produk' => 'required',
+                    'deskripsi_produk' => 'required',
+                    'foto_produk' => 'required|image|mimes:jpeg,png,jpg',
+                ]);
 
-            // //Menampilkan halaman edit produk beserta valuenya
-            // $produk = Produk::find($id);
-            // return view('manager.manager-form-tambah-produk', [
-            //     'user' => $user,
-            //     'produk' => $produk
-            // ]);
+                if($request->file('foto_produk')) {
+                    $file = $request->file('foto_produk');
+                    $fileName = $file->hashName();
+                    $file->store('public/img/produk');
+                    $data['foto_produk'] = '/storage/img/produk/'.$fileName;
+                }
+
+                Produk::where('id_produk', $id)
+                    ->update([
+                        'nama_produk' => $data['nama_produk'],
+                        'berat_produk' => $data['berat_produk'],
+                        'harga_produk' => $data['harga_produk'],
+                        'deskripsi_produk' => $data['deskripsi_produk'],
+                        'foto_produk' => $data['foto_produk']
+                    ]);
+
+                return redirect('/produk');
+            }
+
+            //Menampilkan halaman edit produk beserta valuenya
+            $produk = Produk::find($id);
+            return view('manager.manager-form-tambah-produk', [
+                'user' => $user,
+                'produk' => $produk
+            ]);
         } else {
             abort(403);
         }

@@ -11,7 +11,7 @@
 <div class="row">
     <div class="col-md-6">
         <div class="card">
-            <form class="form-horizontal" action="tambah" method="POST" enctype="multipart/form-data">
+            <form class="form-horizontal" action="{{ $produk->id_produk }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="card-body">
                     <h4 class="card-title">Edit Produk</h4>
@@ -21,7 +21,7 @@
                     <div class="form-group row">
                         <label for="fname" class="col-sm-3 text-right control-label col-form-label">Nama Produk</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="fname" name="nama_produk" value="Test Nama Produk">
+                            <input type="text" class="form-control" id="fname" name="nama_produk" value="{{ $produk->nama_produk }}">
                         </div>
                     </div>
 
@@ -30,7 +30,7 @@
                     <div class="form-group row">
                         <label for="lname" class="col-sm-3 text-right control-label col-form-label">Berat Produk (Kg)</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="lname" name="berat_produk" value="Test Berat Produk 55Kg">
+                            <input type="text" class="form-control" id="lname" name="berat_produk" value="{{ $produk->berat_produk }}">
                         </div>
                     </div>
 
@@ -39,7 +39,7 @@
                     <div class="form-group row">
                         <label for="lname" class="col-sm-3 text-right control-label col-form-label">Harga (Rp)</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="lname" name="harga_produk" value="Test Harga Produk Rp3000000">
+                            <input type="text" class="form-control" id="lname" name="harga_produk" value="{{ $produk->harga_produk }}">
                         </div>
                     </div>
 
@@ -48,7 +48,7 @@
                     <div class="form-group row">
                         <label for="lname" class="col-sm-3 text-right control-label col-form-label">Deskripsi</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="lname" name="deskripsi_produk" value="Test Deskripsi Produk">
+                            <input type="text" class="form-control" id="lname" name="deskripsi_produk" value="{{ $produk->deskripsi_produk }}">
                         </div>
                     </div>
 

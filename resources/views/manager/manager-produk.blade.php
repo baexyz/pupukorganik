@@ -48,9 +48,8 @@
                     <td style="width: 20%">{{ $item->deskripsi_produk }}</td>
                     <td>
                       {{-- EDIT PRODUK --}}
-                      <button type="button" class="btn btn-warning">Edit</button>
+                      <a href="produk/edit/{{ $item->id_produk }}" class="btn btn-warning">Edit</a>
                       {{-- HAPUS PRODUK --}}
-                      {{-- <button type="button" class="btn btn-danger">Hapus</button> --}}
                       <a href="produk/delete/{{ $item->id_produk }}" class="btn btn-danger">Hapus</a>
                     </td>
                   </tr>
