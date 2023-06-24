@@ -27,6 +27,7 @@ Route::middleware('auth:web,pegawai')->group(function () {
     // });
     Route::get('/index', [HomeController::class, 'index']);
     Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+    Route::get('produk/delete/{id}', [ProdukController::class, 'delete']);
     Route::get('/produk', [ProdukController::class, 'index']);
 });
 

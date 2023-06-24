@@ -1,5 +1,11 @@
 @extends('layouts.dashboard')
 
+@section('title', 'Produk')
+
+@section('page-title', 'Produk')
+
+@section('user-name', $user->nama_pegawai)
+
 @section('container')
 
 
@@ -31,19 +37,25 @@
                {{-- Valuenya masih contoh --}}
   
                 <tbody>
+                @foreach ($produk as $item)
                   <tr>
-                    <td> <img src="" alt=""> </td>
-                    <td>Pupuk organik Kemasan 5Kg</td>
-                    <td>5.00 Kg</td>
-                    <td>Rp.45000</td>
-                    <td>Deskripsi</td>
+                    <!--<td> <img src="" alt=""> </td> -->
+                    <td style="width: 30%">
+                      <img src="dashboard/assets/images/produk1.png" alt="user" style="width: 100%" />
+                    </td>
+                    <td style="width: 15%">{{ $item->nama_produk }}</td>
+                    <td style="width: 10%">{{ $item->berat_produk }} Kg</td>
+                    <td style="width: 10%">{{ $item->harga_produk }}</td>
+                    <td style="width: 20%">{{ $item->deskripsi_produk }}</td>
                     <td>
                       {{-- EDIT PRODUK --}}
                       <button type="button" class="btn btn-warning">Edit</button>
                       {{-- HAPUS PRODUK --}}
-                      <button type="button" class="btn btn-danger">Hapus</button>
+                      {{-- <button type="button" class="btn btn-danger">Hapus</button> --}}
+                      <a href="produk/delete/{{ $item->id_produk }}" class="btn btn-danger">Hapus</a>
                     </td>
                   </tr>
+                @endforeach
                 </tbody>
   
           </table>
