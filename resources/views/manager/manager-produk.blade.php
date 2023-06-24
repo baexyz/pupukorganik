@@ -9,16 +9,16 @@
 @section('container')
 
 
-<div class="row">
+<button type="button" class="btn btn-success" style="width:15%; margin-left:85%; margin-bottom:1%;">+ Tambah Produk</button>
+<div class="row"> 
   <div class="col-12">
-
-    <button type="button" class="btn btn-success">+ Tambah Produk</button>
-
+    
       <div class="card">
           <div class="card-body">
-            <h5 class="card-title m-b-0">Daftar Produk</h5>
+            <h3 class="card-title m-b-0">Daftar Produk</h3>    
+
           </div>
-  
+          
         
           <table class="table">
   
