@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('notelp_pegawai',15);
             $table->string('email_pegawai',50)->unique();
             $table->string('password_pegawai',255);
+            $table->integer('role');
             $table->timestamps();
         });
     }

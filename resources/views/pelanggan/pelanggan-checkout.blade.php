@@ -1,16 +1,6 @@
 @extends('layouts.dashboard')
 
-
-@section('pagetitle')
-<div class="page-breadcrumb">
-  <div class="row">
-      <div class="col-12 d-flex no-block align-items-center">
-          <h2 class="page-title">CheckOut</h2>
-      </div>
-  </div>
-</div>
-@endsection
-
+@section('page-title', 'Check Out')
 
 @section('container')
 

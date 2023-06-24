@@ -27,6 +27,9 @@ class LoginController extends Controller
         {
             $request->session()->regenerate();
             return redirect()->intended('/index');
+        } else if (Auth::guard('pegawai')->attempt(['email_pegawai' => $credentials['email_user'],'password' => $credentials['password_user']])) {
+            $request->session()->regenerate();
+            return redirect()->intended('/index');
         }
 
         return back()->with('loginError', 'Login Gagal! Silahkan Cek Email dan Password Anda');

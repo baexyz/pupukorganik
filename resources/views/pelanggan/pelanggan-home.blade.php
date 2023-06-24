@@ -1,18 +1,10 @@
 @extends('layouts.dashboard')
 
-
-@section('pagetitle')
-<div class="page-breadcrumb">
-  <div class="row">
-      <div class="col-12 d-flex no-block align-items-center">
-          <h2 class="page-title">Home</h2>
-      </div>
-  </div>
-</div>
-@endsection
-
-
 @section('container')
+
+@section('page-title', 'Home-Pelanggan')
+
+@section('user-name', $user->nama_user)
 
 <div class="row">
     {{-- Selamat datang (nama user) --}}

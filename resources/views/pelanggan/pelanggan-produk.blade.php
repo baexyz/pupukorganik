@@ -2,15 +2,7 @@
 
 @section('title', 'Produk')
 
-@section('pagetitle')
-<div class="page-breadcrumb">
-  <div class="row">
-      <div class="col-12 d-flex no-block align-items-center">
-          <h2 class="page-title">Produk</h2>
-      </div>
-  </div>
-</div>
-@endsection
+@section('page-title', 'Produk')
 
 @section('container')
     

@@ -95,8 +95,8 @@
                             </form>
                         </li> --}}
                     </ul>
-
-                    <h3 style="color: #ececec; margin-top: 10px">{{ $user->nama_user }}</h3>
+                    {{-- <h3 style="color: #ececec; margin-top: 10px">{{ $user->nama_user }}</h3> --}}
+                    <h3 style="color: #ececec; margin-top: 10px">@yield('user-name')</h3>
 
                     
 
@@ -219,9 +219,13 @@
             <!-- ============================================================== -->
             <!-- Bread crumb and right sidebar toggle -->
             <!-- ============================================================== -->
-            
-            @yield('pagetitle')
-
+            <div class="page-breadcrumb">
+                <div class="row">
+                    <div class="col-12 d-flex no-block align-items-center">
+                        <h2 class="page-title">@yield('page-title')</h2>
+                    </div>
+                </div>
+            </div>
             
             <!-- ============================================================== -->
             <!-- End Bread crumb and right sidebar toggle -->

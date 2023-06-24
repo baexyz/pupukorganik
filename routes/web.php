@@ -21,7 +21,7 @@ Route::get('/', function () {
     return view('landpage.landingpage');
 });
 
-Route::middleware('auth:web')->group(function () {
+Route::middleware('auth:web,pegawai')->group(function () {
     // Route::get('/index', function () {       
     //     return view('layouts.index');
     // });
