@@ -14,12 +14,11 @@
   <div class="col-12">
     
       <div class="card">
+
           <div class="card-body">
             <h3 class="card-title m-b-0">Daftar Produk</h3>    
-
           </div>
           
-        
           <table class="table">
   
                 <thead>
