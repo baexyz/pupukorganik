@@ -87,7 +87,7 @@ class ProdukController extends Controller
                     'berat_produk' => 'required',
                     'harga_produk' => 'required',
                     'deskripsi_produk' => 'required',
-                    'foto_produk' => 'required|image|mimes:jpeg,png,jpg',
+                    'foto_produk' => 'image|mimes:jpeg,png,jpg',
                 ]);
 
                 if($request->file('foto_produk')) {
@@ -98,23 +98,10 @@ class ProdukController extends Controller
                 }
 
                 Produk::where('id_produk', $id)
-                    ->update([
-                        'nama_produk' => $data['nama_produk'],
-                        'berat_produk' => $data['berat_produk'],
-                        'harga_produk' => $data['harga_produk'],
-                        'deskripsi_produk' => $data['deskripsi_produk'],
-                        'foto_produk' => $data['foto_produk']
-                    ]);
+                    ->update($data);
 
                 return redirect('/produk');
             }
-
-            //Menampilkan halaman edit produk beserta valuenya
-            $produk = Produk::find($id);
-            return view('manager.manager-form-tambah-produk', [
-                'user' => $user,
-                'produk' => $produk
-            ]);
         } else {
             abort(403);
         }
