@@ -4,6 +4,7 @@ use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\ProdukController;
 
 /*
@@ -33,6 +34,12 @@ Route::middleware('auth:web,pegawai')->group(function () {
     Route::get('produk/tambah', [ProdukController::class, 'tambah']);
     Route::post('produk/tambah', [ProdukController::class, 'tambah']);
     Route::get('/produk', [ProdukController::class, 'index']);
+    Route::get('pegawai/delete/{id}', [PegawaiController::class, 'delete']);
+    Route::get('pegawai/edit/{id}', [PegawaiController::class, 'edit']);
+    Route::post('pegawai/edit/{id}', [PegawaiController::class, 'edit']);
+    Route::get('pegawai/tambah', [PegawaiController::class, 'tambah']);
+    Route::post('pegawai/tambah', [PegawaiController::class, 'tambah']);
+    Route::get('/pegawai', [PegawaiController::class, 'index']);
 });
 
 Route::get('/register', [RegisterController::class, 'index']);

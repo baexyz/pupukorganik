@@ -1,12 +1,18 @@
 @extends('layouts.dashboard')
 
+@section('title', 'Tambah Pegawai')
+
+@section('page-title', 'Tambah Pegawai')
+
+@section('user-name', $user->nama_pegawai)
 
 @section('container')
 
 <div class="row">
     <div class="col-md-6">
         <div class="card">
-            <form class="form-horizontal">
+            <form class="form-horizontal" method="post" action="tambah">
+            @csrf
                 <div class="card-body">
                     <h4 class="card-title">Input Tambah Pegawai</h4>
 
@@ -15,7 +21,7 @@
                     <div class="form-group row">
                         <label for="fname" class="col-sm-3 text-right control-label col-form-label">Nama Pegawai</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="fname" placeholder="Input Nama Pegawai>
+                            <input type="text" name="nama_pegawai" class="form-control" id="fname" placeholder="Input Nama Pegawai">
                         </div>
                     </div>
 
@@ -24,7 +30,7 @@
                     <div class="form-group row">
                         <label for="lname" class="col-sm-3 text-right control-label col-form-label">No Telepon Pegawai</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="lname" placeholder="No Telepon Pegawai">
+                            <input type="tel" name="notelp_pegawai" class="form-control" id="lname" placeholder="No Telepon Pegawai">
                         </div>
                     </div>
 
@@ -33,7 +39,7 @@
                     <div class="form-group row">
                         <label for="lname" class="col-sm-3 text-right control-label col-form-label">Email Pegawai</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="lname" placeholder="Input Email Pegawai">
+                            <input type="text" name="email_pegawai" class="form-control" id="lname" placeholder="Input Email Pegawai">
                         </div>
                     </div>
 
@@ -42,7 +48,7 @@
                     <div class="form-group row">
                         <label for="lname" class="col-sm-3 text-right control-label col-form-label">Password</label>
                         <div class="col-sm-9">
-                            <input type="password" class="form-control" id="lname" placeholder="Input Password Pegawai">
+                            <input type="text" name="password_pegawai" class="form-control" id="lname" placeholder="Input Password Pegawai">
                         </div>
                     </div>
 
@@ -50,7 +56,7 @@
                 </div>
                 <div class="border-top">
                     <div class="card-body">
-                        <button type="button" class="btn btn-primary">INPUT</button>
+                        <button type="submit" class="btn btn-primary">INPUT</button>
                     </div>
                 </div>
             </form>
