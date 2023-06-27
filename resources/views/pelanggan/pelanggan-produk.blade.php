@@ -4,8 +4,6 @@
 
 @section('page-title', 'Produk')
 
-@section('user-name', $user->nama_user)
-
 @section('container')
     
 

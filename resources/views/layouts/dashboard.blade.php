@@ -95,8 +95,11 @@
                             </form>
                         </li> --}}
                     </ul>
-                    {{-- <h3 style="color: #ececec; margin-top: 10px">{{ $user->nama_user }}</h3> --}}
-                    <h3 style="color: #ececec; margin-top: 10px">@yield('user-name')</h3>
+                    @can('Pelanggan')
+                    <h3 style="color: #ececec; margin-top: 10px">{{ $user->nama_user }}</h3>
+                    @else
+                    <h3 style="color: #ececec; margin-top: 10px">{{ $user->nama_pegawai }}</h3>
+                    @endcan
 
                     
 
@@ -139,8 +142,9 @@
                    <ul id="sidebarnav" class="p-t-30">
         
                    {{-- admin --}}
+                    @can('Manager')
                        <li class="sidebar-item"> 
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/manager/manager-produk" aria-expanded="false"><i class="fas fa-seedling" style="margin-right:10px"></i><span class="hide-menu">Daftar Produk</span></a>
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="produk" aria-expanded="false"><i class="fas fa-seedling" style="margin-right:10px"></i><span class="hide-menu">Daftar Produk</span></a>
                        </li>
         
                        <li class="sidebar-item"> 
@@ -162,9 +166,10 @@
                        <li class="sidebar-item"> 
                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.html" aria-expanded="false"><i class=" fas fa-history" style="margin-right:10px"></i><span class="hide-menu">Riwayat Pemesanan</span></a>
                        </li>
+                    @endcan
         
                    {{-- Pegawai --}}
-                   
+                    @cannot('Pelanggan')
                        <li class="sidebar-item"> 
                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.html" aria-expanded="false"><i class="fas fa-truck" style="margin-right:10px"></i><span class="hide-menu">Input Surat Jalan</span></a>
                        </li>
@@ -172,15 +177,16 @@
                        <li class="sidebar-item"> 
                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.html" aria-expanded="false"><i class="fas fa-paperclip" style="margin-right:10px"></i><span class="hide-menu">Riwayat Surat Jalan</span></a>
                        </li>
+                    @endcannot
         
                    {{-- Pelanggan --}}
-        
+                    @can('Pelanggan')
                        <li class="sidebar-item"> 
-                           <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.html" aria-expanded="false"><i class="fas fa-seedling" style="margin-right:10px"></i><span class="hide-menu">Produk</span></a>
+                           <a class="sidebar-link waves-effect waves-dark sidebar-link" href="produk" aria-expanded="false"><i class="fas fa-seedling" style="margin-right:10px"></i><span class="hide-menu">Produk</span></a>
                        </li>
         
                        <li class="sidebar-item"> 
-                           <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.html" aria-expanded="false"><i class="fas fa-shopping-cart" style="margin-right:10px"></i><span class="hide-menu">Keranjang</span></a>
+                           <a class="sidebar-link waves-effect waves-dark sidebar-link" href="keranjang" aria-expanded="false"><i class="fas fa-shopping-cart" style="margin-right:10px"></i><span class="hide-menu">Keranjang</span></a>
                        </li>
         
                        <li class="sidebar-item"> 
@@ -204,6 +210,7 @@
         
                            </ul>
                        </li> --}}
+                    @endcan
                </ul>
            </nav>
            <!-- End Sidebar navigation -->

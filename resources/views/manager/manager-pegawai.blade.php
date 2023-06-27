@@ -4,8 +4,6 @@
 
 @section('page-title', 'Daftar Pegawai')
 
-@section('user-name', $user->nama_pegawai)
-
 @section('container')
 
 

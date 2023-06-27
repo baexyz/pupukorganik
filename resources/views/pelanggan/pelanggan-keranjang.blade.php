@@ -1,14 +1,14 @@
 @extends('layouts.dashboard')
 
+@section('title', 'Keranjang')
+
 @section('page-title', 'Keranjang')
 
 @section('container')
 
 <div class="row">
     <div class="col-12">
-        
-        <button type="button" class="btn btn-success btn-lg">+Tambah Produk</button>
-
+        <a class="btn btn-success" style="width:15%; margin-bottom:1%;" href="/keranjang/tambah">+ Tambah Produk</a>
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title m-b-0">Keranjang</h5>
@@ -29,7 +29,7 @@
                             <tr>
                                 <td>Pupuk Lumba-Lumba Kemasan 5Kg</td>
                                 <td>
-                                    <input type="number" class="form-control" id="fname" placeholder="">
+                                    <input type="number" style="width: 50px" id="fname" placeholder="" readonly>
                                     <button type="button" class="btn btn-success btn-sm">+</button>
                                     <button type="button" class="btn btn-danger btn-sm">-</button>
                                 </td>
@@ -41,7 +41,7 @@
                             <tr>
                                 <td>Pupuk Lumba-Lumba Kemasan 10Kg</td>
                                 <td>
-                                    <input type="number" class="form-control" id="fname" placeholder="">
+                                    <input type="number" style="width: 50px" id="fname" placeholder="" readonly>
                                     <button type="button" class="btn btn-success btn-sm">+</button>
                                     <button type="button" class="btn btn-danger btn-sm">-</button>
                                 </td>
@@ -53,7 +53,7 @@
                             <tr>
                                 <td>Pupuk Lumba-Lumba Kemasan 25Kg</td>
                                 <td>
-                                    <input type="number" class="form-control" id="fname" placeholder="">
+                                    <input type="number" style="width: 50px" id="fname" placeholder="" readonly>
                                     <button type="button" class="btn btn-success btn-sm">+</button>
                                     <button type="button" class="btn btn-danger btn-sm">-</button>
                                 </td>
