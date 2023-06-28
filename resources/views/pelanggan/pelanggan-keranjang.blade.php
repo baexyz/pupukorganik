@@ -31,8 +31,8 @@
                                 <td>{{ $item->nama_produk }}</td>
                                 <td>
                                     <input type="number" style="width: 50px" id="fname" placeholder="" value="{{ $item->kuantitas }}" readonly>
-                                    <button type="button" class="btn btn-success btn-sm">+</button>
-                                    <button type="button" class="btn btn-danger btn-sm">-</button>
+                                    <a href="keranjang/produk+/{{ $item->id_produk }}" class="btn btn-success btn-sm">+</a>
+                                    <a href="keranjang/produk-/{{ $item->id_produk }}" class="btn btn-danger btn-sm">-</a>
                                 </td>
                                 @php
                                     $harga = $item->harga_produk * $item->kuantitas;

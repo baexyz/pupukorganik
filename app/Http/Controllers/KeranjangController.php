@@ -14,6 +14,10 @@ class KeranjangController extends Controller
     {
         //Mendapatkan Nama User untuk ditampilkan di Home
         $user = $request->user();
+        $keranjang = $user->keranjang()->get();
+        if (count($keranjang) == 0) {
+            return back();
+        }
         $produk = DB::select("
         SELECT p.id_produk, p.nama_produk, p.harga_produk, t.kuantitas
         FROM produk AS p
@@ -50,6 +54,58 @@ class KeranjangController extends Controller
                 if ($p->id_produk != $id) {
                     array_push($produkBaru, $p);
                 }
+            }
+            $keranjang->produk = json_encode($produkBaru);
+            $keranjang->save();
+            return redirect('/keranjang');
+        }
+        abort(403);
+    }
+
+    public function tambahKuantitas(Request $request, $id)
+    {
+        $user = $request->user();
+        if ($user->can('Pelanggan')) {
+            $keranjang = $user->keranjang()->get();
+            if (count($keranjang) == 0) {
+                return redirect('/keranjang');
+            }
+            $keranjang = $keranjang[0];
+            $produk = $keranjang->produk;
+            $produk = json_decode($produk);
+            $produkBaru = array();
+            foreach ($produk as $p) {
+                if ($p->id_produk == $id) {
+                    $p->kuantitas++;
+                }
+                array_push($produkBaru, $p);
+            }
+            $keranjang->produk = json_encode($produkBaru);
+            $keranjang->save();
+            return redirect('/keranjang');
+        }
+        abort(403);
+    }
+
+    public function kurangKuantitas(Request $request, $id)
+    {
+        $user = $request->user();
+        if ($user->can('Pelanggan')) {
+            $keranjang = $user->keranjang()->get();
+            if (count($keranjang) == 0) {
+                return redirect('/keranjang');
+            }
+            $keranjang = $keranjang[0];
+            $produk = $keranjang->produk;
+            $produk = json_decode($produk);
+            $produkBaru = array();
+            foreach ($produk as $p) {
+                if ($p->id_produk == $id) {
+                    if ($p->kuantitas == 1)
+                        continue;
+                    $p->kuantitas--;
+                }
+                array_push($produkBaru, $p);
             }
             $keranjang->produk = json_encode($produkBaru);
             $keranjang->save();
