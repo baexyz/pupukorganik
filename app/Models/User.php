@@ -23,7 +23,7 @@ class User extends Authenticatable
 
     public function keranjang()
     {
-        return $this->hasOne(Keranjang::class, 'id_keranjang');
+        return $this->hasOne(Keranjang::class, 'id_user', 'id_user');
     }
 
     public function checkout()

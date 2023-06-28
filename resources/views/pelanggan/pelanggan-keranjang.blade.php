@@ -26,42 +26,23 @@
                         </thead>
 
                         <tbody class="customtable">
+                            @foreach ($keranjang as $item)
                             <tr>
-                                <td>Pupuk Lumba-Lumba Kemasan 5Kg</td>
+                                <td>{{ $item->nama_produk }}</td>
                                 <td>
-                                    <input type="number" style="width: 50px" id="fname" placeholder="" readonly>
+                                    <input type="number" style="width: 50px" id="fname" placeholder="" value="{{ $item->kuantitas }}" readonly>
                                     <button type="button" class="btn btn-success btn-sm">+</button>
                                     <button type="button" class="btn btn-danger btn-sm">-</button>
                                 </td>
-                                <td>25000</td>
+                                @php
+                                    $harga = $item->harga_produk * $item->kuantitas;
+                                @endphp
+                                <td>{{ $harga }}</td>
                                 <td>
-                                    <button type="button" class="btn btn-danger btn-sm">Hapus</button>
+                                    <a href="keranjang/delete/{{ $item->id_produk }}" class="btn btn-danger">Hapus</a>
                                 </td>
                             </tr>
-                            <tr>
-                                <td>Pupuk Lumba-Lumba Kemasan 10Kg</td>
-                                <td>
-                                    <input type="number" style="width: 50px" id="fname" placeholder="" readonly>
-                                    <button type="button" class="btn btn-success btn-sm">+</button>
-                                    <button type="button" class="btn btn-danger btn-sm">-</button>
-                                </td>
-                                <td>45000</td>
-                                <td>
-                                    <button type="button" class="btn btn-danger btn-sm">Hapus</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Pupuk Lumba-Lumba Kemasan 25Kg</td>
-                                <td>
-                                    <input type="number" style="width: 50px" id="fname" placeholder="" readonly>
-                                    <button type="button" class="btn btn-success btn-sm">+</button>
-                                    <button type="button" class="btn btn-danger btn-sm">-</button>
-                                </td>
-                                <td>105000</td>
-                                <td>
-                                    <button type="button" class="btn btn-danger btn-sm">Hapus</button>
-                                </td>
-                            </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

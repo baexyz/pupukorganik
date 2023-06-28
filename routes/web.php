@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\KeranjangController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
@@ -40,6 +41,8 @@ Route::middleware('auth:web,pegawai')->group(function () {
     Route::get('pegawai/tambah', [PegawaiController::class, 'tambah']);
     Route::post('pegawai/tambah', [PegawaiController::class, 'tambah']);
     Route::get('/pegawai', [PegawaiController::class, 'index']);
+    Route::get('keranjang/delete/{id}', [KeranjangController::class, 'delete']);
+    Route::get('/keranjang' , [KeranjangController::class, 'index']);
 });
 
 Route::get('/register', [RegisterController::class, 'index']);

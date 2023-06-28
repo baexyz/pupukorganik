@@ -13,9 +13,8 @@ return new class extends Migration
     {
         Schema::create('keranjang', function (Blueprint $table) {
             $table->id('id_keranjang');
-
-            $table->foreignId('id_produk')->constrained('produk','id_produk');
-
+            $table->foreignId('id_user')->constrained('user','id_user');
+            $table->json('produk');
             $table->integer('harga_total_keranjang');
             $table->timestamps();
         });
