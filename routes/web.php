@@ -34,6 +34,7 @@ Route::middleware('auth:web,pegawai')->group(function () {
     Route::post('produk/edit/{id}', [ProdukController::class, 'edit']);
     Route::get('produk/tambah', [ProdukController::class, 'tambah']);
     Route::post('produk/tambah', [ProdukController::class, 'tambah']);
+    Route::get('/produk/pesan/{id}', [ProdukController::class, 'tambahKeranjang']);
     Route::get('/produk', [ProdukController::class, 'index']);
     Route::get('pegawai/delete/{id}', [PegawaiController::class, 'delete']);
     Route::get('pegawai/edit/{id}', [PegawaiController::class, 'edit']);

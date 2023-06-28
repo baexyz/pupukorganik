@@ -38,7 +38,7 @@
                       
                       <td style="width: 15%"> 
                         {{-- BUTTON PESAN UNTUK MENAMBAHKAN PRODUK KE DALAM KERANJANG --}}
-                        <button type="button" class="btn btn-success btn-lg">Pesan</button>  
+                        <a href="produk/pesan/{{ $item->id_produk }}" class="btn btn-success btn-lg">Pesan</a>
                       </td>
                     </tr>
                   @endforeach

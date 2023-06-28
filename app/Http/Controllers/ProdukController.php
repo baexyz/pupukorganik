@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Keranjang;
 use App\Models\Produk;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 
 class ProdukController extends Controller
 {
@@ -117,5 +119,31 @@ class ProdukController extends Controller
         } else {
             abort(403);
         }
+    }
+
+    public function tambahKeranjang(Request $request, $id){
+        $user = $request->user();
+        if ($user->can("Pelanggan")) {
+            $keranjang = $user->keranjang()->get();
+            if (count($keranjang) == 0) {
+                $data = [
+                    'id_user' => $user->id_user,
+                    'produk' => json_encode([
+                        ['id_produk' => $id, 'kuantitas' => 1],
+                    ]),
+                    'harga_total_keranjang' => 0,
+                ];
+                Keranjang::create($data);
+            } else {
+                $keranjang = $keranjang[0];
+                DB::table('keranjang')
+                    ->where('id_keranjang', $keranjang->id_keranjang)
+                    ->update([
+                        'produk' => DB::raw("JSON_ARRAY_APPEND(keranjang.produk, '$', CAST('".json_encode(['id_produk' => $id, 'kuantitas' => 1])."' as JSON))")
+                ]);
+            }
+            return redirect('/produk');
+        }
+        abort(403);
     }
 }
