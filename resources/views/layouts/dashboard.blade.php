@@ -148,7 +148,7 @@
                        </li>
         
                        <li class="sidebar-item"> 
-                           <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.html" aria-expanded="false"><i class="fas fa-address-card" style="margin-right:10px"></i><span class="hide-menu">Daftar Pegawai</span></a>
+                           <a class="sidebar-link waves-effect waves-dark sidebar-link" href="pegawai" aria-expanded="false"><i class="fas fa-address-card" style="margin-right:10px"></i><span class="hide-menu">Daftar Pegawai</span></a>
                        </li>
         
                        <li class="sidebar-item"> 
