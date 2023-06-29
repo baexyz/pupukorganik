@@ -34,7 +34,7 @@
                       <td style="width: 15%">{{ $item->nama_produk }}</td>
                       <td style="width: 20%">{{ $item->deskripsi_produk }}</td>
                       <td style="width: 10%">{{ $item->berat_produk }} Kg</td>
-                      <td style="width: 10%">{{ $item->harga_produk }}</td>
+                      <td style="width: 10%">Rp{{ number_format($item->harga_produk, 0, ',', '.') }}</td>
                       
                       <td style="width: 15%"> 
                         {{-- BUTTON PESAN UNTUK MENAMBAHKAN PRODUK KE DALAM KERANJANG --}}

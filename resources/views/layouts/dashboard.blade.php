@@ -259,7 +259,7 @@
             <!-- footer -->
             <!-- ============================================================== -->
             <footer class="footer text-center">
-                Copyrights By <a href="PTNongguanBiotekIndonesia.com">PT Nongguan Biotek Indonesia.com</a>
+                Copyrights By <a href="PTNongguanBiotekIndonesia.com" style="color: rgb(76, 160, 83)"> <b> PT Nongguan Biotek Indonesia.com </b> </a>
             </footer>
             <!-- ============================================================== -->
             <!-- End footer -->

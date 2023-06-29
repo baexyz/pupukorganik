@@ -45,6 +45,7 @@ Route::middleware('auth:web,pegawai')->group(function () {
     Route::get('keranjang/delete/{id}', [KeranjangController::class, 'delete']);
     Route::get('keranjang/produk+/{id}', [KeranjangController::class, 'tambahKuantitas']);
     Route::get('keranjang/produk-/{id}', [KeranjangController::class, 'kurangKuantitas']);
+    Route::post('keranjang/edit', [KeranjangController::class, 'edit']);
     Route::get('/keranjang' , [KeranjangController::class, 'index']);
 });
 
