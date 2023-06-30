@@ -46,7 +46,7 @@ class KeranjangController extends Controller
     {
         $user = $request->user();
         if ($user->can('Pelanggan')) {
-            $keranjang = $user->keranjang()->get();
+            $keranjang = $user->keranjang()->where('isCheckout', 0)->get();
             if (count($keranjang) == 0) {
                 return redirect('/keranjang');
             }
@@ -73,7 +73,7 @@ class KeranjangController extends Controller
     {
         $user = $request->user();
         if ($user->can('Pelanggan')) {
-            $keranjang = $user->keranjang()->get();
+            $keranjang = $user->keranjang()->where('isCheckout', 0)->get();
             if (count($keranjang) == 0) {
                 return redirect('/keranjang');
             }
@@ -100,7 +100,7 @@ class KeranjangController extends Controller
     {
         $user = $request->user();
         if ($user->can('Pelanggan')) {
-            $keranjang = $user->keranjang()->get();
+            $keranjang = $user->keranjang()->where('isCheckout', 0)->get();
             if (count($keranjang) == 0) {
                 return redirect('/keranjang');
             }
@@ -128,7 +128,7 @@ class KeranjangController extends Controller
     public function edit(Request $request) {
         $user = $request->user();
         if ($user->can('Pelanggan')) {
-            $keranjang = $user->keranjang()->get();
+            $keranjang = $user->keranjang()->where('isCheckout', 0)->get();
             if (count($keranjang) == 0) {
                 return redirect('/keranjang');
             }
