@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id('id_pembayaran');
             $table->string('id_pemesanan');
             $table->foreign('id_pemesanan')->references('id_keranjang')->on('keranjang');
-            $table->timestamp('waktu_pembayaran');
-            $table->boolean('status_pembayaran');
+            $table->timestamp('waktu_pembayaran')->nullable();
+            $table->enum('status_pembayaran', ['PENDING', 'PAID', 'EXPIRED']);
             $table->timestamps();
         });
     }

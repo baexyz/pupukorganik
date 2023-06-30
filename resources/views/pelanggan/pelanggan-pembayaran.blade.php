@@ -40,11 +40,19 @@
                                     @if ($loop->first)
                                     <td rowspan="{{ $loop->count }}" style="vertical-align: middle">Rp{{ number_format($item->total, 0, ',', '.') }}</td>
                                     <td rowspan="{{ $loop->count }}" style="vertical-align: middle">
-                                    @if ($item->status_pembayaran == 0)
+                                    {{-- @if ($item->status_pembayaran == 0)
                                         <button type="button" class="btn btn-danger btn-lg">Belum Lunas</button>
                                     @else 
                                         <button type="button" class="btn btn-success btn-lg">Lunas</button>
+                                    @endif --}}
+                                    @if ($item->status_pembayaran == 'PENDING')
+                                        <button type="button" class="btn btn-warning btn-lg">Belum Lunas</button>
+                                    @elseif ($item->status_pembayaran == 'PAID')
+                                        <button type="button" class="btn btn-success btn-lg">Lunas</button>
+                                    @elseif ($item->status_pembayaran == 'EXPIRED')
+                                        <button type="button" class="btn btn-danger btn-lg">Expired</button>
                                     @endif
+                                    
                                     </td>
                                     @endif  
                                 </tr>

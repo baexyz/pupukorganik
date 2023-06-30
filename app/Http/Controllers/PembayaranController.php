@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pembayaran;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -45,4 +47,23 @@ class PembayaranController extends Controller
         }
         abort(403);
     }
+
+    public function receiveCallback(Request $request) {
+        $data = $request->all();
+        $idKeranjang = $data['external_id'];
+        $pembayaran = Pembayaran::where('id_pemesanan', $idKeranjang)->first();
+        if ($pembayaran) {
+            $status = $data['status'];
+            if ($status == 'PAID') {
+                $timestamp = strtotime($data['paid_at']);
+                $formattedDate = date("Y-m-d H:i:s", $timestamp);
+                $pembayaran->waktu_pembayaran = $formattedDate;
+            }
+            $pembayaran->status_pembayaran = $status;
+            $pembayaran->save();
+        }
+        return response()->json(['success' => true]);
+    }
+
+   
 }
