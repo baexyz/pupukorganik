@@ -118,15 +118,16 @@ class CheckoutController extends Controller
                     'currency' => 'IDR',
                     'items' => $produk,
                   ];
-                Invoice::create($params);
+                $invoice = Invoice::create($params);
 
                 Pembayaran::create([
                     'id_pemesanan' => $data['id_keranjang'],
-                    'status_pembayaran' => 'PENDING'
+                    'status_pembayaran' => 'PENDING',
+                    'invoice_url' => $invoice['invoice_url'],
                 ]);
                 $keranjang[0]->isCheckout = true;
                 $keranjang[0]->save();
-    
+
                 return redirect('/bayar');
             } catch (\Exception $e) {
                 // abort(500, $e->getMessage());

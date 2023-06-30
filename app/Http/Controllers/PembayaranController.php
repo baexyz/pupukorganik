@@ -37,6 +37,7 @@ class PembayaranController extends Controller
                     'total' => $keranjang->harga_total_keranjang,
                     'id_keranjang' => $keranjang->id_keranjang,
                     'status_pembayaran' => $keranjang->checkout()->first()->status_pembayaran,
+                    'invoice_url' => $keranjang->checkout()->first()->invoice_url,
                 ];
             }
 

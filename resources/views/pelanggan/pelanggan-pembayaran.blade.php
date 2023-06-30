@@ -47,6 +47,8 @@
                                     @endif --}}
                                     @if ($item->status_pembayaran == 'PENDING')
                                         <button type="button" class="btn btn-warning btn-lg">Belum Lunas</button>
+                                        {{-- Link pembayaran --}}
+                                        <a href="{{ $item->invoice_url }}" class="btn btn-primary btn-lg">Bayar</a>
                                     @elseif ($item->status_pembayaran == 'PAID')
                                         <button type="button" class="btn btn-success btn-lg">Lunas</button>
                                     @elseif ($item->status_pembayaran == 'EXPIRED')

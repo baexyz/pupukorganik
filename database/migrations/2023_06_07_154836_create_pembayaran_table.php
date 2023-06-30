@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreign('id_pemesanan')->references('id_keranjang')->on('keranjang');
             $table->timestamp('waktu_pembayaran')->nullable();
             $table->enum('status_pembayaran', ['PENDING', 'PAID', 'EXPIRED']);
+            $table->string('invoice_url');
             $table->timestamps();
         });
     }
