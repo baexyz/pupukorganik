@@ -1,5 +1,7 @@
 @extends('layouts.dashboard')
 
+@section('title', 'Pembayaran')
+
 @section('page-title', 'Pembayaran')
 
 @section('container')
@@ -23,20 +25,33 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>AB4123</td>
-                                <td>Pupuk Lumba-Lumba Kemasan 5Kg</td>
-                                <td>10</td>
-                                <td>Rp450000</td>
-                                <td>
-                                    {{-- JIKA BELUM BAYAR --}}
-                                    <button type="button" class="btn btn-danger btn-lg">Belum Lunas</button>
-                                    {{-- JIKA SUDAH BAYAR --}}
-                                    <button type="button" class="btn btn-success btn-lg">Lunas</button>
-                                </td>  
-                            </tr>
-
+                            @foreach ($pembayaran as $item)
+                                @php
+                                    $iter = $loop->iteration;
+                                @endphp
+                                @foreach ($item->produk as $produk)
+                                <tr>
+                                    @if ($loop->first)
+                                    <td rowspan="{{ $loop->count }}" style="vertical-align: middle" class="text-center">{{ $iter }}</td>
+                                    <td rowspan="{{ $loop->count }}" style="vertical-align: middle" class="text-center">{{ $item->id_keranjang }}</td>
+                                    @endif
+                                    <td style="vertical-align: middle">{{ $produk->nama_produk }}</td>
+                                    <td style="vertical-align: middle">{{ $produk->kuantitas }}</td>
+                                    @if ($loop->first)
+                                    <td rowspan="{{ $loop->count }}" style="vertical-align: middle">Rp{{ number_format($item->total, 0, ',', '.') }}</td>
+                                    <td rowspan="{{ $loop->count }}" style="vertical-align: middle">
+                                    @if ($item->status_pembayaran == 0)
+                                        <button type="button" class="btn btn-danger btn-lg">Belum Lunas</button>
+                                    @else 
+                                        <button type="button" class="btn btn-success btn-lg">Lunas</button>
+                                    @endif
+                                    </td>
+                                    @endif  
+                                </tr>
+                                @endforeach
+                            
+                            @endforeach
+                        </tbody>
                     </table>
                 </div>
 

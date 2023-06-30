@@ -65,7 +65,7 @@
         </div>
 
         <h3 style="position: relative; display:inline-block; margin-left:51%;">Total Harga : Rp{{ number_format($totalharga, 0, ',', '.') }}</h3>
-        <button type="button" class="btn btn-warning btn-lg" style="position: relative; display:inline-block; float: right; width:15%"><b>CHECKOUT</b></button>
+        <a href="checkout" class="btn btn-warning btn-lg" style="position: relative; display:inline-block; float: right; width:15%"><b>CHECKOUT</b></a>
         
     </div>
 </div>

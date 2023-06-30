@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id('id_suratjalan');
 
             $table->foreignId('id_pegawai')->constrained('pegawai','id_pegawai');
-            $table->foreignId('id_pemesanan')->constrained('pengambilan','id_pemesanan');
-
+            $table->string('id_pemesanan');
+            $table->foreign('id_pemesanan')->references('id_pemesanan')->on('pengambilan');
             $table->char('no_suratjalan',10);
             $table->string('nama_penerima_suratjalan',50);
             $table->string('notelp_penerima_suratjalan',15);

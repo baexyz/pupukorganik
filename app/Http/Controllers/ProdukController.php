@@ -125,22 +125,24 @@ class ProdukController extends Controller
     public function tambahKeranjang(Request $request, $id){
         $user = $request->user();
         if ($user->can("Pelanggan")) {
-            $keranjang = $user->keranjang()->get();
+            $harga_produk = Produk::find($id)->harga_produk;
+            $keranjang = $user->keranjang()->where('isCheckout', 0)->get();
             if (count($keranjang) == 0) {
                 $data = [
                     'id_user' => $user->id_user,
                     'produk' => json_encode([
                         ['id_produk' => $id, 'kuantitas' => 1],
                     ]),
-                    'harga_total_keranjang' => 0,
+                    'harga_total_keranjang' => $harga_produk,
                 ];
                 generateUniqueCode($data);
-            } else {
+            } else if (count($keranjang) == 1) {
                 $keranjang = $keranjang[0];
                 DB::table('keranjang')
                     ->where('id_keranjang', $keranjang->id_keranjang)
                     ->update([
-                        'produk' => DB::raw("JSON_ARRAY_APPEND(keranjang.produk, '$', CAST('".json_encode(['id_produk' => $id, 'kuantitas' => 1])."' as JSON))")
+                        'produk' => DB::raw("JSON_ARRAY_APPEND(keranjang.produk, '$', CAST('".json_encode(['id_produk' => $id, 'kuantitas' => 1])."' as JSON))"),
+                        'harga_total_keranjang' => DB::raw("harga_total_keranjang + $harga_produk"),
                 ]);
             }
             return redirect('/produk');

@@ -13,9 +13,8 @@ return new class extends Migration
     {
         Schema::create('pembayaran', function (Blueprint $table) {
             $table->id('id_pembayaran');
-
-            $table->foreignId('id_pemesanan')->constrained('checkout','id_checkout');
-
+            $table->string('id_pemesanan');
+            $table->foreign('id_pemesanan')->references('id_keranjang')->on('keranjang');
             $table->timestamp('waktu_pembayaran');
             $table->boolean('status_pembayaran');
             $table->timestamps();

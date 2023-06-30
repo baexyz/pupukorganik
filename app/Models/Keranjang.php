@@ -23,7 +23,7 @@ class Keranjang extends Model
 
     public function checkout()
     {
-        return $this->hasMany(Checkout::class);
+        return $this->hasOne(Pembayaran::class, 'id_pemesanan', 'id_keranjang');
     }
 
     

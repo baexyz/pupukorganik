@@ -23,18 +23,18 @@ class User extends Authenticatable
 
     public function keranjang()
     {
-        return $this->hasOne(Keranjang::class, 'id_user', 'id_user');
+        return $this->hasMany(Keranjang::class, 'id_user', 'id_user');
     }
 
-    public function checkout()
-    {
-        return $this->hasMany(Checkout::class, 'id_checkout');
-    }
+    // public function checkout()
+    // {
+    //     return $this->hasMany(Checkout::class, 'id_checkout');
+    // }
 
-    public function pembayaran()
-    {
-        return $this->hasMany(Pembayaran::class, 'id_pembayaran');
-    }
+    // public function pembayaran()
+    // {
+    //     return $this->hasMany(Pembayaran::class, 'id_user', 'id_user');
+    // }
 
     public function pengambilan()
     {

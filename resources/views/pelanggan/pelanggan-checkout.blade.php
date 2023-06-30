@@ -15,13 +15,12 @@
         <div class="card card-body printableArea">
             <div class="row">
                 
-                <div clas   s="col-md-12">
+                <div class="col-md-12">
                     <div class="table-responsive m-t-40" style="clear: both;">
                         <table class="table table-hover">
                             <thead>
                                 <tr>
-                                    <th class="text-center">Nama</th>
-                                    <th class="text-center">Perusahaan</th>
+                                    <th class="text-center">ID Pesanan</th>
                                     <th>Produk Pesanan</th>
                                     <th class="text-right">Kuantitas</th>
                                     <th class="text-right">Harga</th>
@@ -29,11 +28,10 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($keranjang as $item)
+                                @foreach ($produk as $item)
                                 <tr>
                                     @if ($loop->first)
-                                    <td rowspan="{{ $loop->count }}" style="vertical-align: middle" class="text-center">{{ $user->nama_user }}</td>
-                                    <td rowspan="{{ $loop->count }}" style="vertical-align: middle" class="text-center">{{ $user->perusahaan_user }}</td>
+                                    <td rowspan="{{ $loop->count }}" style="vertical-align: middle" class="text-center">{{ $id_keranjang }}</td>
                                     @endif                                    
                                     <td>{{ $item->nama_produk }}</td>
                                     <td class="text-right">{{ $item->kuantitas }}</td>
@@ -57,13 +55,24 @@
                     <div class="clearfix"></div>
                     <hr>
                     <div class="text-right">
-                        <button class="btn btn-danger" type="submit"> BAYAR </button>
+                        {{-- <a href="bayar" class="btn btn-danger"> BAYAR </a> --}}
+                        <button type="button" class="btn btn-danger" onclick="func1()"> BAYAR </button>
                     </div>
+                    <form id="form1" style="display: none" action="checkout" method="POST">
+                        @csrf                    
+                        <input type="text" id="abc" name="id_keranjang" value="{{ $id_keranjang }}">
+                    </form>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<script>
+    function func1() {
+        document.getElementById("form1").submit();
+    }
+</script>
 
 
 

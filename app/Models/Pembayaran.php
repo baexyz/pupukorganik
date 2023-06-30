@@ -9,7 +9,7 @@ class Pembayaran extends Model
 {
     use HasFactory;
 
-    protected $table = 'embayaran';
+    protected $table = 'pembayaran';
     protected $primaryKey = 'id_pembayaran';
     protected $guarded = ['id_pembayaran'];
 
@@ -22,7 +22,7 @@ class Pembayaran extends Model
 
     public function checkout()
     {
-        return $this->belongsTo(Pembayaran::class, 'id_checkout');
+        return $this->belongsTo(Keranjang::class, 'id_pemesanan', 'id_keranjang');
     }
 
     public function pengambilan()

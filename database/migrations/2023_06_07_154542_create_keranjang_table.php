@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreignId('id_user')->constrained('user','id_user');
             $table->json('produk');
             $table->integer('harga_total_keranjang');
+            $table->boolean('isCheckout')->default(false);
             $table->timestamps();
         });
     }

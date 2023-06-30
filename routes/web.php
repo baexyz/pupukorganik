@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PegawaiController;
+use App\Http\Controllers\PembayaranController;
 use App\Http\Controllers\ProdukController;
 
 /*
@@ -49,6 +50,8 @@ Route::middleware('auth:web,pegawai')->group(function () {
     Route::post('keranjang/edit', [KeranjangController::class, 'edit']);
     Route::get('/keranjang' , [KeranjangController::class, 'index']);
     Route::get('/checkout' , [CheckoutController::class, 'index']);
+    Route::post('/checkout' , [CheckoutController::class, 'checkout']);
+    Route::get('/bayar' , [PembayaranController::class, 'index']);
 });
 
 Route::get('/register', [RegisterController::class, 'index']);

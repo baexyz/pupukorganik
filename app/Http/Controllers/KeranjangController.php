@@ -15,9 +15,10 @@ class KeranjangController extends Controller
     {
         //Mendapatkan Nama User untuk ditampilkan di Home
         $user = $request->user();
-        $keranjang = $user->keranjang()->get();
+        $keranjang = $user->keranjang()->where('isCheckout', 0)->get();
         $produk = array();
-        if (count($keranjang) > 0) {
+        $total_harga = 0;
+        if (count($keranjang) == 1) {
             $produk = DB::select("
             SELECT p.id_produk, p.nama_produk, p.harga_produk, t.kuantitas
             FROM produk AS p
@@ -30,12 +31,14 @@ class KeranjangController extends Controller
                 )) AS jt
                 WHERE keranjang.id_keranjang = :idKeranjang
             ) AS t ON p.id_produk = t.id_produk
-            ", ['idKeranjang' => $user->keranjang()->get()[0]->id_keranjang]);
+            ", ['idKeranjang' => $keranjang[0]->id_keranjang]);
+            $total_harga = $keranjang[0]->harga_total_keranjang;
         }
         
         return view('pelanggan.pelanggan-keranjang', [
             'user' => $user,
-            'keranjang' => $produk
+            'keranjang' => $produk,
+            'total_harga' => $total_harga
         ]);
     }
 
@@ -48,12 +51,15 @@ class KeranjangController extends Controller
                 return redirect('/keranjang');
             }
             $keranjang = $keranjang[0];
+            $harga_produk = Produk::find($id)->harga_produk;
             $produk = $keranjang->produk;
             $produk = json_decode($produk);
             $produkBaru = array();
             foreach ($produk as $p) {
                 if ($p->id_produk != $id) {
                     array_push($produkBaru, $p);
+                } else {
+                    $keranjang->harga_total_keranjang -= $harga_produk * $p->kuantitas;
                 }
             }
             $keranjang->produk = json_encode($produkBaru);
@@ -72,6 +78,7 @@ class KeranjangController extends Controller
                 return redirect('/keranjang');
             }
             $keranjang = $keranjang[0];
+            $harga_produk = Produk::find($id)->harga_produk;
             $produk = $keranjang->produk;
             $produk = json_decode($produk);
             $produkBaru = array();
@@ -82,6 +89,7 @@ class KeranjangController extends Controller
                 array_push($produkBaru, $p);
             }
             $keranjang->produk = json_encode($produkBaru);
+            $keranjang->harga_total_keranjang += $harga_produk;
             $keranjang->save();
             return redirect('/keranjang');
         }
@@ -97,6 +105,7 @@ class KeranjangController extends Controller
                 return redirect('/keranjang');
             }
             $keranjang = $keranjang[0];
+            $harga_produk = Produk::find($id)->harga_produk;
             $produk = $keranjang->produk;
             $produk = json_decode($produk);
             $produkBaru = array();
@@ -109,6 +118,7 @@ class KeranjangController extends Controller
                 array_push($produkBaru, $p);
             }
             $keranjang->produk = json_encode($produkBaru);
+            $keranjang->harga_total_keranjang -= $harga_produk;
             $keranjang->save();
             return redirect('/keranjang');
         }
@@ -133,8 +143,17 @@ class KeranjangController extends Controller
                 'id_produk' => 'required|numeric'
             ]);
 
+            $harga_produk = Produk::find($data['id_produk'])->harga_produk;
+
             foreach ($produk as $p) {
                 if ($p->id_produk == $data['id_produk']) {
+                    $total_harga_old = $p->kuantitas * $harga_produk;
+                    if ($data['kuantitas'] == 0) {
+                        $keranjang->harga_total_keranjang -= $total_harga_old;
+                        continue;
+                    }
+                    $total_harga_new = $data['kuantitas'] * $harga_produk;
+                    $keranjang->harga_total_keranjang += $total_harga_new - $total_harga_old;
                     $p->kuantitas = $data['kuantitas'];
                 }
                 array_push($produkBaru, $p);
