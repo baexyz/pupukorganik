@@ -6,6 +6,7 @@ use App\Models\Keranjang;
 use App\Models\Produk;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 
 class ProdukController extends Controller
@@ -133,7 +134,7 @@ class ProdukController extends Controller
                     ]),
                     'harga_total_keranjang' => 0,
                 ];
-                Keranjang::create($data);
+                generateUniqueCode($data);
             } else {
                 $keranjang = $keranjang[0];
                 DB::table('keranjang')
@@ -145,5 +146,26 @@ class ProdukController extends Controller
             return redirect('/produk');
         }
         abort(403);
+    }
+}
+
+function generateUniqueCode($data) {
+    try {
+        $code = "";
+        for ($i = 0; $i < 5; $i++) {
+            $code .= Str::random(1);
+        }
+        $code = strtoupper($code);
+        $data['id_keranjang'] = $code;
+        Keranjang::create($data);
+    } catch (\Illuminate\Database\QueryException $e) {
+        $error_info = $e->errorInfo;
+        if($error_info[1] == 1062) {
+            generateUniqueCode($data);
+        } else {
+            // Only logs when an error other than duplicate happens
+            // print_r($e->getMessage());
+            ddd($e->getMessage());
+        }
     }
 }

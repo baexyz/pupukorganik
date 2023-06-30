@@ -14,8 +14,6 @@ return new class extends Migration
         Schema::create('checkout', function (Blueprint $table) {
             $table->id('id_checkout');
 
-            $table->foreignId('id_keranjang')->constrained('keranjang','id_keranjang');
-
             $table->datetime('waktu_checkout');
             $table->timestamps();
         });

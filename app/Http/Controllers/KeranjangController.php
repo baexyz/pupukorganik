@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Keranjang;
 use App\Models\Produk;
+use Exception;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
@@ -144,4 +145,6 @@ class KeranjangController extends Controller
         }
         abort(403);
     }
+
 }
+

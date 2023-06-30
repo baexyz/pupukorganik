@@ -11,7 +11,8 @@ class Keranjang extends Model
 
     protected $table = 'keranjang';
     protected $primaryKey = 'id_keranjang';
-    protected $guarded = ['id_keranjang'];
+    protected $guarded = [''];
+    protected $keyType = 'string';
 
 
 

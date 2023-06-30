@@ -55,9 +55,6 @@
                     </table>
                 </div>
 
-                
-
-
                 <form id="form1" style="display: none" action="keranjang/edit" method="POST">
                     @csrf                    
                     <input type="number" id="abc" name="kuantitas">

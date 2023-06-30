@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KeranjangController;
 use Illuminate\Support\Facades\Route;
@@ -47,6 +48,7 @@ Route::middleware('auth:web,pegawai')->group(function () {
     Route::get('keranjang/produk-/{id}', [KeranjangController::class, 'kurangKuantitas']);
     Route::post('keranjang/edit', [KeranjangController::class, 'edit']);
     Route::get('/keranjang' , [KeranjangController::class, 'index']);
+    Route::get('/checkout' , [CheckoutController::class, 'index']);
 });
 
 Route::get('/register', [RegisterController::class, 'index']);
