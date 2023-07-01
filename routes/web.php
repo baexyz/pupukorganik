@@ -36,7 +36,7 @@ Route::middleware('auth:web,pegawai')->group(function () {
     Route::post('produk/edit/{id}', [ProdukController::class, 'edit']);
     Route::get('produk/tambah', [ProdukController::class, 'tambah']);
     Route::post('produk/tambah', [ProdukController::class, 'tambah']);
-    Route::get('/produk/pesan/{id}', [ProdukController::class, 'tambahKeranjang']);
+    Route::post('/produk/pesan', [ProdukController::class, 'tambahKeranjang']);
     Route::get('/produk', [ProdukController::class, 'index']);
     Route::get('pegawai/delete/{id}', [PegawaiController::class, 'delete']);
     Route::get('pegawai/edit/{id}', [PegawaiController::class, 'edit']);
@@ -45,8 +45,6 @@ Route::middleware('auth:web,pegawai')->group(function () {
     Route::post('pegawai/tambah', [PegawaiController::class, 'tambah']);
     Route::get('/pegawai', [PegawaiController::class, 'index']);
     Route::get('keranjang/delete/{id}', [KeranjangController::class, 'delete']);
-    Route::get('keranjang/produk+/{id}', [KeranjangController::class, 'tambahKuantitas']);
-    Route::get('keranjang/produk-/{id}', [KeranjangController::class, 'kurangKuantitas']);
     Route::post('keranjang/edit', [KeranjangController::class, 'edit']);
     Route::get('/keranjang' , [KeranjangController::class, 'index']);
     Route::get('/checkout' , [CheckoutController::class, 'index']);

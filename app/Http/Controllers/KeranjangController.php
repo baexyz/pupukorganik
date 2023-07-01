@@ -69,62 +69,6 @@ class KeranjangController extends Controller
         abort(403);
     }
 
-    public function tambahKuantitas(Request $request, $id)
-    {
-        $user = $request->user();
-        if ($user->can('Pelanggan')) {
-            $keranjang = $user->keranjang()->where('isCheckout', 0)->get();
-            if (count($keranjang) == 0) {
-                return redirect('/keranjang');
-            }
-            $keranjang = $keranjang[0];
-            $harga_produk = Produk::find($id)->harga_produk;
-            $produk = $keranjang->produk;
-            $produk = json_decode($produk);
-            $produkBaru = array();
-            foreach ($produk as $p) {
-                if ($p->id_produk == $id) {
-                    $p->kuantitas++;
-                }
-                array_push($produkBaru, $p);
-            }
-            $keranjang->produk = json_encode($produkBaru);
-            $keranjang->harga_total_keranjang += $harga_produk;
-            $keranjang->save();
-            return redirect('/keranjang');
-        }
-        abort(403);
-    }
-
-    public function kurangKuantitas(Request $request, $id)
-    {
-        $user = $request->user();
-        if ($user->can('Pelanggan')) {
-            $keranjang = $user->keranjang()->where('isCheckout', 0)->get();
-            if (count($keranjang) == 0) {
-                return redirect('/keranjang');
-            }
-            $keranjang = $keranjang[0];
-            $harga_produk = Produk::find($id)->harga_produk;
-            $produk = $keranjang->produk;
-            $produk = json_decode($produk);
-            $produkBaru = array();
-            foreach ($produk as $p) {
-                if ($p->id_produk == $id) {
-                    if ($p->kuantitas == 1)
-                        continue;
-                    $p->kuantitas--;
-                }
-                array_push($produkBaru, $p);
-            }
-            $keranjang->produk = json_encode($produkBaru);
-            $keranjang->harga_total_keranjang -= $harga_produk;
-            $keranjang->save();
-            return redirect('/keranjang');
-        }
-        abort(403);
-    }
-
     public function edit(Request $request) {
         $user = $request->user();
         if ($user->can('Pelanggan')) {

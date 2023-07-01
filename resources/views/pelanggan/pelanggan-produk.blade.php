@@ -38,15 +38,25 @@
                       
                       <td style="width: 15%"> 
                         {{-- BUTTON PESAN UNTUK MENAMBAHKAN PRODUK KE DALAM KERANJANG --}}
-                        <a href="produk/pesan/{{ $item->id_produk }}" class="btn btn-success btn-lg">Pesan</a>
+                        <button type="button" class="btn btn-success btn-lg" onclick="func1({{ $item->id_produk }})">Pesan</button>
                       </td>
                     </tr>
                   @endforeach
                   </tbody>
             </table>
         </div>
-        
+        <form id="form1" style="display: none" action="produk/pesan" method="POST">
+          @csrf                    
+          <input type="text" id="abc" name="id_produk">
+        </form>
     </div>
 </div>
+
+<script>
+  function func1(id) {
+    document.getElementById("abc").value = id;
+    document.getElementById("form1").submit();
+  }
+</script>
 
 @endsection

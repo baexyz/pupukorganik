@@ -122,8 +122,14 @@ class ProdukController extends Controller
         }
     }
 
-    public function tambahKeranjang(Request $request, $id){
+    public function tambahKeranjang(Request $request){
         $user = $request->user();
+        //validate request data
+        $data = $request->validate([
+            'id_produk' => 'required',
+        ]);
+        $id = $data['id_produk'];
+
         if ($user->can("Pelanggan")) {
             $harga_produk = Produk::find($id)->harga_produk;
             $keranjang = $user->keranjang()->where('isCheckout', 0)->get();

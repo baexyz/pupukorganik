@@ -36,8 +36,8 @@
                                 <td>
                                     <p id="idProduk" style="display: none">{{ $item->id_produk }}</p>
                                     <input type="number" style="width: 50px" class="kuantitas" placeholder="" value="{{ $item->kuantitas }}" readonly>
-                                    <a href="keranjang/produk+/{{ $item->id_produk }}" class="btn btn-success btn-sm">+</a>
-                                    <a href="keranjang/produk-/{{ $item->id_produk }}" class="btn btn-danger btn-sm">-</a>
+                                    <button onclick="tambah(this)" class="btn btn-success btn-sm">+</button>
+                                    <button onclick="kurang(this)" class="btn btn-danger btn-sm">-</button>
                                 </td>
                                 @php
                                     $harga = $item->harga_produk * $item->kuantitas;
@@ -118,6 +118,20 @@
         document.getElementById("idp").value = idProduk;
         var form = document.getElementById("form1");
         form.submit();
+    }
+
+    function tambah(event) {
+        var idProduk = event.parentNode.querySelector("#idProduk").textContent;
+        var kuantitas = event.parentNode.querySelector(".kuantitas").value;
+        kuantitas++;
+        updateInputData(idProduk, kuantitas);
+    }
+
+    function kurang(event) {
+        var idProduk = event.parentNode.querySelector("#idProduk").textContent;
+        var kuantitas = event.parentNode.querySelector(".kuantitas").value;
+        kuantitas--;
+        updateInputData(idProduk, kuantitas);
     }
   </script>
     
