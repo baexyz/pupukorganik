@@ -26,26 +26,21 @@
                         </thead>
                         <tbody>
                             @foreach ($pengambilan as $item)
-                                @php
-                                    $iter = $loop->iteration;
-                                    $waktu = $item->waktu_penerimaan;
-                                    $status = $item->status;
-                                @endphp
                                 @foreach ($item->produk as $produk)
                                 <tr>
                                     @if ($loop->first)
-                                    <td rowspan="{{ $loop->count }}" style="vertical-align: middle" class="text-center">{{ $iter }}</td>
+                                    <td rowspan="{{ $loop->count }}" style="vertical-align: middle" class="text-center">{{ $loop->parent->iteration }}</td>
                                     <td rowspan="{{ $loop->count }}" style="vertical-align: middle" class="text-center">{{ $item->id_keranjang }}</td>
                                     @endif
                                     <td style="vertical-align: middle">{{ $produk->nama_produk }}</td>
                                     <td style="vertical-align: middle">{{ $produk->kuantitas }}</td>
                                     @if ($loop->first)
-                                    <td rowspan="{{ $loop->count }}" style="vertical-align: middle" class="text-center">{{ $waktu }}</td>
+                                    <td rowspan="{{ $loop->count }}" style="vertical-align: middle" class="text-center">{{ $item->waktu_penerimaan }}</td>
                                     <td rowspan="{{ $loop->count }}" style="vertical-align: middle" class="text-center">
-                                        @if ($status == 0)
+                                        @if ($item->status == 0)
                                         {{-- JIKA BELUM DIAMBIL --}}
                                         <button type="button" class="btn btn-warning btn-lg">Belum Diambil</button>
-                                        @elseif ($status == 1)
+                                        @elseif ($item->status == 1)
                                         {{-- JIKA SUDAH DIAMBIL --}}
                                         <button type="button" class="btn btn-success btn-lg">Sudah Diambil</button>
                                         @endif

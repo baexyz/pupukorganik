@@ -26,13 +26,10 @@
                         </thead>
                         <tbody>
                             @foreach ($pembayaran as $item)
-                                @php
-                                    $iter = $loop->iteration;
-                                @endphp
                                 @foreach ($item->produk as $produk)
                                 <tr>
                                     @if ($loop->first)
-                                    <td rowspan="{{ $loop->count }}" style="vertical-align: middle" class="text-center">{{ $iter }}</td>
+                                    <td rowspan="{{ $loop->count }}" style="vertical-align: middle" class="text-center">{{ $loop->parent->iteration }}</td>
                                     <td rowspan="{{ $loop->count }}" style="vertical-align: middle" class="text-center">{{ $item->id_keranjang }}</td>
                                     @endif
                                     <td style="vertical-align: middle">{{ $produk->nama_produk }}</td>
