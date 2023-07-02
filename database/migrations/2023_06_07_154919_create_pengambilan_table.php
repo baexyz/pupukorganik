@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('pengambilan', function (Blueprint $table) {
             $table->id('id_pengambilan');
-            $table->string('id_pemesanan');
-            $table->foreign('id_pemesanan')->references('id_pemesanan')->on('pembayaran');
+            $table->foreignId('id_pembayaran')->constrained('pembayaran','id_pembayaran');
+            $table->foreignId('id_user')->constrained('user','id_user');
             $table->boolean('status_pengambilan');
             $table->timestamps();
         });

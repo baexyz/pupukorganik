@@ -16,17 +16,17 @@ class Pengambilan extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class, 'id_user');
+        return $this->belongsTo(User::class, 'id_user', 'id_user');
     }
 
     public function suratjalan()
     {
-        return $this->hasOne(Suratjalan::class, 'id_suratjalan');
+        return $this->hasOne(Suratjalan::class, 'id_pengambilan', 'id_pengambilan');
     }
 
     public function pembayaran()
     {
-        return $this->belongsTo(Pembayaran::class, 'id_pembayaran');
+        return $this->belongsTo(Pembayaran::class, 'id_pembayaran', 'id_pembayaran');
     }
 
 }

@@ -1,5 +1,7 @@
 @extends('layouts.dashboard')
 
+@section('title', 'Pengambilan')
+
 @section('page-title', 'Pengambilan')
 
 @section('container')
@@ -18,30 +20,40 @@
                                 <th>ID Pemesanan</th>
                                 <th>Produk</th>
                                 <th>Kuantitas</th>
-                                <th>Nama Pemesan</th>
-                                <th>Perusahaan</th>
                                 <th>Waktu Penerimaan</th>
                                 <th>Status</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>AB4123</td>
-                                <td>Pupuk Lumba-Lumba Kemasan 5Kg</td>
-                                <td>10</td>
-                                <td>Rp450000</td>
-                                <td>Anton Wicaksono</td>
-                                <td>CV Jaya Makmur</td>
-                                <td> 13/02/2023 (11:20:49)</td>
-                                <td>
-                                    {{-- JIKA BELUM DIAMBIL --}}
-                                    <button type="button" class="btn btn-warning btn-lg">Belum Diambil</button>
-                                    {{-- JIKA SUDAH DIAMBIL --}}
-                                    <button type="button" class="btn btn-success btn-lg">Sudah Diambil</button>
-                                </td>  
-                            </tr>
-
+                            @foreach ($pengambilan as $item)
+                                @php
+                                    $iter = $loop->iteration;
+                                    $waktu = $item->waktu_penerimaan;
+                                    $status = $item->status;
+                                @endphp
+                                @foreach ($item->produk as $produk)
+                                <tr>
+                                    @if ($loop->first)
+                                    <td rowspan="{{ $loop->count }}" style="vertical-align: middle" class="text-center">{{ $iter }}</td>
+                                    <td rowspan="{{ $loop->count }}" style="vertical-align: middle" class="text-center">{{ $item->id_keranjang }}</td>
+                                    @endif
+                                    <td style="vertical-align: middle">{{ $produk->nama_produk }}</td>
+                                    <td style="vertical-align: middle">{{ $produk->kuantitas }}</td>
+                                    @if ($loop->first)
+                                    <td rowspan="{{ $loop->count }}" style="vertical-align: middle" class="text-center">{{ $waktu }}</td>
+                                    <td rowspan="{{ $loop->count }}" style="vertical-align: middle" class="text-center">
+                                        @if ($status == 0)
+                                        {{-- JIKA BELUM DIAMBIL --}}
+                                        <button type="button" class="btn btn-warning btn-lg">Belum Diambil</button>
+                                        @elseif ($status == 1)
+                                        {{-- JIKA SUDAH DIAMBIL --}}
+                                        <button type="button" class="btn btn-success btn-lg">Sudah Diambil</button>
+                                        @endif
+                                    </td>
+                                    @endif
+                                </tr>
+                                @endforeach
+                            @endforeach
                     </table>
                 </div>
 

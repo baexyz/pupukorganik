@@ -38,7 +38,7 @@ class User extends Authenticatable
 
     public function pengambilan()
     {
-        return $this->hasMany(Pengambilan::class, 'id_pengambilan');
+        return $this->hasMany(Pengambilan::class, 'id_user', 'id_user');
     }
 
 }

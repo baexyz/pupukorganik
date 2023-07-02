@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pembayaran;
+use App\Models\Pengambilan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Xendit\Invoice;
@@ -119,6 +120,7 @@ class CheckoutController extends Controller
                     'items' => $produk,
                   ];
                 $invoice = Invoice::create($params);
+                // $invoice['invoice_url'] = "https://google.com";
 
                 Pembayaran::create([
                     'id_pemesanan' => $data['id_keranjang'],
