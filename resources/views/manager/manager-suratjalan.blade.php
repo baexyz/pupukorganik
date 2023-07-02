@@ -1,5 +1,9 @@
 @extends('layouts.dashboard')
 
+@section('title', 'Daftar Surat Jalan')
+
+@section('page-title', 'Daftar Surat Jalan')
+
 @section('container')
 
 

@@ -156,7 +156,7 @@
                        </li>
         
                        <li class="sidebar-item"> 
-                           <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.html" aria-expanded="false"><i class="fas fa-shopping-basket" style="margin-right:10px"></i><span class="hide-menu">Daftar Pemesanan</span></a>
+                           <a class="sidebar-link waves-effect waves-dark sidebar-link" href="pemesanan" aria-expanded="false"><i class="fas fa-shopping-basket" style="margin-right:10px"></i><span class="hide-menu">Daftar Pemesanan</span></a>
                        </li>
         
                        <li class="sidebar-item"> 
@@ -164,7 +164,7 @@
                        </li>
         
                        <li class="sidebar-item"> 
-                           <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.html" aria-expanded="false"><i class=" fas fa-history" style="margin-right:10px"></i><span class="hide-menu">Riwayat Pemesanan</span></a>
+                           <a class="sidebar-link waves-effect waves-dark sidebar-link" href="riwayat-penjualan" aria-expanded="false"><i class=" fas fa-history" style="margin-right:10px"></i><span class="hide-menu">Riwayat Pemesanan</span></a>
                        </li>
                     @endcan
         

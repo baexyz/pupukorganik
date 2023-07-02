@@ -39,7 +39,10 @@ class SuratjalanController extends Controller
                     if ($data_suratjalan == null) {
                         $waktu_penerimaan = "Belum Diambil";
                     } else {
-                        $waktu_penerimaan = $data_suratjalan->waktu_penerimaan_suratjalan;
+                        // $waktu_penerimaan = $data_suratjalan->waktu_penerimaan_suratjalan;
+                        $carbon = Carbon::parse($data_suratjalan->waktu_penerimaan_suratjalan, 'UTC');
+                        $carbon->setTimezone('Asia/Jakarta');
+                        $waktu_penerimaan = $carbon->format('d-m-Y H:i:s');
                     }
     
                     $data[] = (object) [
@@ -52,6 +55,11 @@ class SuratjalanController extends Controller
                     ];
                 }
             }
+            if ($user->can('Manager'))
+                return view('manager.manager-pengambilan', [
+                    'user' => $user,
+                    'pengambilan' => $data,
+                ]);
             return view('pegawai.pegawai-pengambilan', [
                 'user' => $user,
                 'pengambilan' => $data,
