@@ -8,7 +8,9 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\PembayaranController;
+use App\Http\Controllers\PengambilanController;
 use App\Http\Controllers\ProdukController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,6 +52,8 @@ Route::middleware('auth:web,pegawai')->group(function () {
     Route::get('/checkout' , [CheckoutController::class, 'index']);
     Route::post('/checkout' , [CheckoutController::class, 'checkout']);
     Route::get('/bayar' , [PembayaranController::class, 'index']);
+    Route::get('/riwayat-pemesanan', [UserController::class, 'riwayatPemesanan']);
+    Route::get('/pengambilan', [PengambilanController::class, 'index']);
 });
 
 Route::get('/register', [RegisterController::class, 'index']);

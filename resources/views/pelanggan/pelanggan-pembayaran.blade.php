@@ -26,13 +26,10 @@
                         </thead>
                         <tbody>
                             @foreach ($pembayaran as $item)
-                                @php
-                                    $iter = $loop->iteration;
-                                @endphp
                                 @foreach ($item->produk as $produk)
                                 <tr>
                                     @if ($loop->first)
-                                    <td rowspan="{{ $loop->count }}" style="vertical-align: middle" class="text-center">{{ $iter }}</td>
+                                    <td rowspan="{{ $loop->count }}" style="vertical-align: middle" class="text-center">{{ $loop->parent->iteration }}</td>
                                     <td rowspan="{{ $loop->count }}" style="vertical-align: middle" class="text-center">{{ $item->id_keranjang }}</td>
                                     @endif
                                     <td style="vertical-align: middle">{{ $produk->nama_produk }}</td>
@@ -48,7 +45,7 @@
                                     @if ($item->status_pembayaran == 'PENDING')
                                         <button type="button" class="btn btn-warning btn-lg">Belum Lunas</button>
                                         {{-- Link pembayaran --}}
-                                        <a href="{{ $item->invoice_url }}" class="btn btn-primary btn-lg">Bayar</a>
+                                        <a href="{{ $item->invoice_url }}" target="_blank" class="btn btn-primary btn-lg">Bayar</a>
                                     @elseif ($item->status_pembayaran == 'PAID')
                                         <button type="button" class="btn btn-success btn-lg">Lunas</button>
                                     @elseif ($item->status_pembayaran == 'EXPIRED')

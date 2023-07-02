@@ -15,10 +15,10 @@ class Pembayaran extends Model
 
 
 
-    public function user()
-    {
-        return $this->belongsTo(User::class, 'id_user');
-    }
+    // public function user()
+    // {
+    //     return $this->belongsTo(User::class, 'id_user', 'id_user');
+    // }
 
     public function checkout()
     {
@@ -27,7 +27,7 @@ class Pembayaran extends Model
 
     public function pengambilan()
     {
-        return $this->hasOne(Pengambilan::class, 'id_pengambilan');
+        return $this->hasOne(Pengambilan::class, 'id_pembayaran', 'id_pembayaran');
     }
 
     

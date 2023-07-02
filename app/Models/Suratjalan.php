@@ -19,10 +19,9 @@ class Suratjalan extends Model
         return $this->belongsTo(Pegawai::class, 'id_pegawai');
     }
 
-
     public function pengambilan()
     {
-        return $this->belongsTo(Pengambilan::class, 'id_pengambilan');
+        return $this->belongsTo(Pengambilan::class, 'id_pengambilan', 'id_pengambilan');
     }
 
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pembayaran;
+use App\Models\Pengambilan;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -12,7 +13,7 @@ class PembayaranController extends Controller
     public function index(Request $request) {
         //Mendapatkan Nama User untuk ditampilkan di Home
         $user = $request->user();
-        $keranjang = $user->keranjang()->get();
+        $keranjang = $user->keranjang()->orderBy('updated_at', 'desc')->get();
         if (count($keranjang) > 0) {
             $pembayaran = array();
             //loop through each keranjang
@@ -59,6 +60,12 @@ class PembayaranController extends Controller
                 $timestamp = strtotime($data['paid_at']);
                 $formattedDate = date("Y-m-d H:i:s", $timestamp);
                 $pembayaran->waktu_pembayaran = $formattedDate;
+
+                Pengambilan::create([
+                    'id_pembayaran' => $pembayaran->id_pembayaran,
+                    'id_user' => $pembayaran->checkout()->first()->id_user,
+                    'status_pengambilan' => 0,
+                ]);
             }
             $pembayaran->status_pembayaran = $status;
             $pembayaran->save();

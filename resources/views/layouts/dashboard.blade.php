@@ -190,15 +190,15 @@
                        </li>
         
                        <li class="sidebar-item"> 
-                           <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.html" aria-expanded="false"><i class="far fa-credit-card" style="margin-right:10px"></i><span class="hide-menu">Pembayaran</span></a>
+                           <a class="sidebar-link waves-effect waves-dark sidebar-link" href="bayar" aria-expanded="false"><i class="far fa-credit-card" style="margin-right:10px"></i><span class="hide-menu">Pembayaran</span></a>
                        </li>
         
                        <li class="sidebar-item"> 
-                           <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.html" aria-expanded="false"><i class="fas fa-truck-loading" style="margin-right:10px"></i><span class="hide-menu">Pengambilan</span></a>
+                           <a class="sidebar-link waves-effect waves-dark sidebar-link" href="pengambilan" aria-expanded="false"><i class="fas fa-truck-loading" style="margin-right:10px"></i><span class="hide-menu">Pengambilan</span></a>
                        </li>
                        
                        <li class="sidebar-item"> 
-                           <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.html" aria-expanded="false"><i class="fas fa-history" style="margin-right:10px"></i><span class="hide-menu">Riwayat Pemesanan</span></a>
+                           <a class="sidebar-link waves-effect waves-dark sidebar-link" href="riwayat-pemesanan" aria-expanded="false"><i class="fas fa-history" style="margin-right:10px"></i><span class="hide-menu">Riwayat Pemesanan</span></a>
                        </li>
         
                        {{-- DROPDOWN (JIKA DIPAKAI) --}}
