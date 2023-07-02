@@ -42,7 +42,7 @@
                     <div class="form-group row">
                         <label class="m-t-15">Waktu Penerimaan</label>
                                 <div class="input-group">
-                                    <input type="text" class="form-control" id="datepicker-autoclose" placeholder="mm/dd/yyyy">
+                                    <input type="datetime-local" id="waktupenerimaan" name="waktupenerimaan">
                                     <div class="input-group-append">
                                         <span class="input-group-text"><i class="fa fa-calendar"></i></span>
                                     </div>
@@ -72,11 +72,7 @@
                     <div class="form-group row">
                         <label class="col-md-3">Upload Bukti Surat Jalan</label>
                         <div class="col-md-9">
-                            <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="validatedCustomFile" required>
-                                <label class="custom-file-label" for="validatedCustomFile">Pilih Gambar</label>
-                                <div class="invalid-feedback">Example invalid custom file feedback</div>
-                            </div>
+                            <input type="file" name="upload_surat_jalan">
                         </div>
                     </div>
 
