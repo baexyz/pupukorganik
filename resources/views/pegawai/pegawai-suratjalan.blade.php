@@ -1,7 +1,10 @@
 @extends('layouts.dashboard')
 
-@section('container')
+@section('title', 'Daftar Surat Jalan')
 
+@section('page-title', 'Daftar Surat Jalan')
+
+@section('container')
 
 <div class="row">
   <div class="col-12">
@@ -26,18 +29,21 @@
             {{-- Valuenya masih contoh --}}
   
             <tbody>
+              @foreach ($suratjalan as $item)
               <tr>
-                  <td>DN321947971391</td>
-                  <td>Anton Wicaksono</td>
-                  <td>08123456789</td>
-                  <td>24/02/2023 (13:21:49)</td>
-                  <td>L300</td>
-                  <td>N1234KL</td>
-                  <td>
-                    {{-- HAPUS PEGAWAI --}}
-                    <button type="button" class="btn btn-info">Unduh</button>
-                  </td>
-                </tr>
+                <td>{{ $item->no_suratjalan }}</td>
+                <td>{{ $item->nama_penerima_suratjalan }}</td>
+                <td>{{ $item->notelp_penerima_suratjalan }}</td>
+                <td>{{ $item->waktu_penerimaan_suratjalan }}</td>
+                <td>{{ $item->tipe_kendaraan_suratjalan }}</td>
+                <td>{{ $item->noplat_suratjalan }}</td>
+                <td>
+                  {{-- HAPUS PEGAWAI --}}
+                  <a href="{{ $item->bukti_suratjalan }}" target="_blank" class="btn btn-info">Unduh</a>
+                </td>    
+              </tr>
+              @endforeach
+              
             </tbody>
       </table>
   </div> 

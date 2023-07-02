@@ -11,7 +11,7 @@ class UserController extends Controller
     {
         //Mendapatkan Nama User untuk ditampilkan di Home
         $user = $request->user();
-        $keranjang = $user->keranjang()->orderBy('updated_at', 'desc')->get();
+        $keranjang = $user->keranjang()->orderBy('created_at', 'desc')->get();
         $pemesanan = array();
         if (count($keranjang) > 0) {
             //loop through each keranjang

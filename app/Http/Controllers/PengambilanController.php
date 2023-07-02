@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -10,7 +11,7 @@ class PengambilanController extends Controller
     public function index(Request $request) {
         //Mendapatkan Nama User untuk ditampilkan di Home
         $user = $request->user();
-        $pengambilan = $user->pengambilan()->orderBy('updated_at', 'desc')->get();
+        $pengambilan = $user->pengambilan()->orderBy('created_at', 'desc')->get();
         $data = array();
         if (count($pengambilan) > 0) {
             foreach ($pengambilan as $pengambilan) {
@@ -33,7 +34,9 @@ class PengambilanController extends Controller
                 if ($data_suratjalan == null) {
                     $waktu_penerimaan = "Belum Diambil";
                 } else {
-                    $waktu_penerimaan = $data_suratjalan->waktu_penerimaan_suratjalan;
+                    $carbon = Carbon::parse($data_suratjalan->waktu_penerimaan_suratjalan, 'UTC');
+                    $carbon->setTimezone('Asia/Jakarta');
+                    $waktu_penerimaan = $carbon->format('d/m/Y (H:i:s)');
                 }
 
                 $data[] = (object) [

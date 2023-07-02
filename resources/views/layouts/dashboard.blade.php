@@ -171,11 +171,11 @@
                    {{-- Pegawai --}}
                     @cannot('Pelanggan')
                        <li class="sidebar-item"> 
-                           <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.html" aria-expanded="false"><i class="fas fa-truck" style="margin-right:10px"></i><span class="hide-menu">Input Surat Jalan</span></a>
+                           <a class="sidebar-link waves-effect waves-dark sidebar-link" href="daftar-pengambilan" aria-expanded="false"><i class="fas fa-truck" style="margin-right:10px"></i><span class="hide-menu">Input Surat Jalan</span></a>
                        </li>
         
                        <li class="sidebar-item"> 
-                           <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.html" aria-expanded="false"><i class="fas fa-paperclip" style="margin-right:10px"></i><span class="hide-menu">Riwayat Surat Jalan</span></a>
+                           <a class="sidebar-link waves-effect waves-dark sidebar-link" href="daftar-surat" aria-expanded="false"><i class="fas fa-paperclip" style="margin-right:10px"></i><span class="hide-menu">Riwayat Surat Jalan</span></a>
                        </li>
                     @endcannot
         

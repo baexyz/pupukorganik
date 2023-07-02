@@ -10,6 +10,7 @@ use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\PembayaranController;
 use App\Http\Controllers\PengambilanController;
 use App\Http\Controllers\ProdukController;
+use App\Http\Controllers\SuratjalanController;
 use App\Http\Controllers\UserController;
 
 /*
@@ -54,6 +55,10 @@ Route::middleware('auth:web,pegawai')->group(function () {
     Route::get('/bayar' , [PembayaranController::class, 'index']);
     Route::get('/riwayat-pemesanan', [UserController::class, 'riwayatPemesanan']);
     Route::get('/pengambilan', [PengambilanController::class, 'index']);
+    Route::get('/daftar-pengambilan', [SuratjalanController::class, 'index']);
+    Route::post('/form-surat', [SuratjalanController::class, 'formSurat']);
+    Route::post('/input-surat', [SuratjalanController::class, 'inputSurat']);
+    Route::get('/daftar-surat', [SuratjalanController::class, 'daftarSurat']);
 });
 
 Route::get('/register', [RegisterController::class, 'index']);

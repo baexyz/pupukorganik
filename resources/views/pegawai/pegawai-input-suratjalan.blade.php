@@ -1,85 +1,72 @@
 @extends('layouts.dashboard')
 
+@section('title', 'Input Surat Jalan')
 
-@section('containerr')
+@section('page-title', 'Input Surat Jalan')
+
+@section('container')
 
 <div class="row">
     <div class="col-md-6">
         <div class="card">
-            <form class="form-horizontal">
+            <form class="form-horizontal" action="input-surat" method="POST" enctype="multipart/form-data">
+                @csrf
                 <div class="card-body">
                     <h4 class="card-title">Input Surat Jalan</h4>
-
-
+                    <input type="hidden" name="id_pengambilan" value="{{ $id_pengambilan }}">
                     {{-- INPUT NOMER SURAT JALAN --}}
                     <div class="form-group row">
                         <label for="fname" class="col-sm-3 text-right control-label col-form-label">No. Surat Jalan</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="fname" placeholder="Input Nomer Surat Jalan">
+                            <input type="text" class="form-control" id="fname" name="no_suratjalan" placeholder="Input Nomer Surat Jalan">
                         </div>
                     </div>
-
-
                     {{-- INPUT NAMA PENERIMA --}}
                     <div class="form-group row">
                         <label for="lname" class="col-sm-3 text-right control-label col-form-label">Nama Penerima</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="lname" placeholder="Input Nama Penerima Barang">
+                            <input type="text" class="form-control" id="lname" name="nama_penerima_suratjalan" placeholder="Input Nama Penerima Barang" value="{{ $pelanggan->nama_user }}">
                         </div>
                     </div>
-
-
                     {{-- INPUT NOMER TELEPON PENERIMA --}}
                     <div class="form-group row">
                         <label for="lname" class="col-sm-3 text-right control-label col-form-label">No. Telepon Penerima</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="lname" placeholder="Input Nomer Telepon Penerima">
+                            <input type="text" class="form-control" id="lname" name="notelp_penerima_suratjalan" placeholder="Input Nomer Telepon Penerima" value="{{ $pelanggan->notelp_user }}">
                         </div>
                     </div>
-
-
                     {{-- INPUT WAKTU PENERIMAAN --}}
                     <div class="form-group row">
-                        <label class="m-t-15">Waktu Penerimaan</label>
-                                <div class="input-group">
-                                    <input type="datetime-local" id="waktupenerimaan" name="waktupenerimaan">
-                                    <div class="input-group-append">
-                                        <span class="input-group-text"><i class="fa fa-calendar"></i></span>
-                                    </div>
-                                </div>
+                        <label class="col-md-3">Waktu Penerimaan</label>
+                        <div class="col-sm-9">
+                            <input type="datetime-local" id="waktupenerimaan" name="waktu_penerimaan_suratjalan">
+                        </div>
                     </div>
-                    
-
                     {{-- INPUT TIPE KENDARAAN PENERIMA --}}
                     <div class="form-group row">
                         <label for="lname" class="col-sm-3 text-right control-label col-form-label">Tipe Kendaraan</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="lname" placeholder="Input Tipe Kendaraan Penerima">
+                            <input type="text" class="form-control" id="lname" name="tipe_kendaraan_suratjalan" placeholder="Input Tipe Kendaraan Penerima">
                         </div>
                     </div>
-
-
                     {{-- INPUT NOMER PLAT KENDARAAN PENERIMA --}}
                     <div class="form-group row">
                         <label for="lname" class="col-sm-3 text-right control-label col-form-label">No. Plat Kendaraan</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="lname" placeholder="Input Nomer Plat Kendaraan Penerima">
+                            <input type="text" class="form-control" id="lname" name="noplat_suratjalan" placeholder="Input Nomer Plat Kendaraan Penerima">
                         </div>
                     </div>
-
-
                     {{-- UPLOAD GAMBAR BUKTI SURAT JALAN --}}
                     <div class="form-group row">
                         <label class="col-md-3">Upload Bukti Surat Jalan</label>
                         <div class="col-md-9">
-                            <input type="file" name="upload_surat_jalan">
+                            <input type="file" name="bukti_suratjalan">
                         </div>
                     </div>
-
                 </div>
                 <div class="border-top">
                     <div class="card-body">
-                        <button type="button" class="btn btn-primary">INPUT</button>
+                        <button type="submit" class="btn btn-primary">INPUT</button>
                     </div>
                 </div>
             </form>
