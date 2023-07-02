@@ -1,5 +1,9 @@
 @extends('layouts.dashboard')
 
+@section('title', 'Daftar Pelanggan')
+
+@section('page-title', 'Daftar Pelanggan')
+
 @section('container')
     
 
@@ -20,45 +24,22 @@
                                 <th>Alamat</th>
                             </tr>
                         </thead>
-        
-        
                         {{-- Valuenya masih contoh --}}
-        
-        
                         <tbody>
-        
+                            @foreach ($pelanggan as $item)
                             <tr>
-                                <td>Tiger Nixon</td>
-                                <td>CV Maju Jaya</td>
-                                <td>tiger@gmail.com</td>
-                                <td>09321312321312</td>
-                                <td>jln jalan no 123</td>
+                                <td>{{ $item->nama_user }}</td>
+                                <td>{{ $item->perusahaan_user }}</td>
+                                <td>{{ $item->email_user }}</td>
+                                <td>{{ $item->notelp_user }}</td>
+                                <td>{{ $item->alamat_user }}</td>
                             </tr>
-                            <tr>
-                                <td>Tiger Nixon</td>
-                                <td>CV Maju Jaya</td>
-                                <td>tiger@gmail.com</td>
-                                <td>09321312321312</td>
-                                <td>jln jalan no 123</td>
-                            </tr>
-                            <tr>
-                                <td>Tiger Nixon</td>
-                                <td>CV Maju Jaya</td>
-                                <td>tiger@gmail.com</td>
-                                <td>09321312321312</td>
-                                <td>jln jalan no 123</td>
-                            </tr>
-        
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
-  
     </div>
   </div>
-
-
-
-
 @endsection

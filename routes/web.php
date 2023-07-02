@@ -59,6 +59,7 @@ Route::middleware('auth:web,pegawai')->group(function () {
     Route::post('/form-surat', [SuratjalanController::class, 'formSurat']);
     Route::post('/input-surat', [SuratjalanController::class, 'inputSurat']);
     Route::get('/daftar-surat', [SuratjalanController::class, 'daftarSurat']);
+    Route::get('/pelanggan', [UserController::class, 'daftarPelanggan']);
 });
 
 Route::get('/register', [RegisterController::class, 'index']);

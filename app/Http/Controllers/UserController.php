@@ -2,11 +2,29 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
+    public function daftarPelanggan(Request $request) {
+        $user = $request->user();
+        if ($user->can("Manager")) {
+            $pelanggan = User::all();
+            return view('manager.manager-pelanggan', [
+                'user' => $user,
+                'pelanggan' => $pelanggan
+            ]);
+        }
+        abort(403);
+        // $pelanggan = $user->pelanggan()->first();
+        // return view('pelanggan.pelanggan-daftar', [
+        //     'user' => $user,
+        //     'pelanggan' => $pelanggan,
+        // ]);
+    }
+
     public function riwayatPemesanan(Request $request)
     {
         //Mendapatkan Nama User untuk ditampilkan di Home

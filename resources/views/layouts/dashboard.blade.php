@@ -152,7 +152,7 @@
                        </li>
         
                        <li class="sidebar-item"> 
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.html" aria-expanded="false"><i class="fas fa-users" style="margin-right:10px"></i><span class="hide-menu">Daftar Pelanggan</span></a>
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="pelanggan" aria-expanded="false"><i class="fas fa-users" style="margin-right:10px"></i><span class="hide-menu">Daftar Pelanggan</span></a>
                        </li>
         
                        <li class="sidebar-item"> 
