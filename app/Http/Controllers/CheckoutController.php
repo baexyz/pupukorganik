@@ -118,6 +118,7 @@ class CheckoutController extends Controller
                     ],
                     'currency' => 'IDR',
                     'items' => $produk,
+                    'payment_methods' =>['BCA', 'BNI', 'BSI', 'BRI', 'MANDIRI', 'PERMATA', 'ALFAMART', 'INDOMARET', 'OVO', 'DANA', 'LINKAJA', 'GOPAY', 'SHOPEEPAY','QRIS']
                   ];
                 $invoice = Invoice::create($params);
                 // $invoice['invoice_url'] = "https://google.com";

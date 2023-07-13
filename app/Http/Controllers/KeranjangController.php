@@ -110,6 +110,8 @@ class KeranjangController extends Controller
         abort(403);
     }
 
+
+    // Menambahkan Daftar Order Manager
     public function indexManager(Request $request) {
         //Mendapatkan Nama User untuk ditampilkan di Home
         $user = $request->user();
@@ -155,6 +157,7 @@ class KeranjangController extends Controller
         
     }
 
+    // Menambahkan Riwayat Penjualan  Manager
     public function riwayatPenjualan(Request $request)
     {
         //Mendapatkan Nama User untuk ditampilkan di Home

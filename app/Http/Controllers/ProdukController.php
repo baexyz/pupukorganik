@@ -50,7 +50,8 @@ class ProdukController extends Controller
                         'deskripsi_produk' => 'required',
                         'foto_produk' => 'required|image|mimes:jpeg,png,jpg',
                     ]);
-    
+                    
+                    //Menyimpan foto produk
                     if($request->file('foto_produk')) {
                         $file = $request->file('foto_produk');
                         $fileName = $file->hashName();
@@ -61,6 +62,8 @@ class ProdukController extends Controller
                     //Menambahkan produk baru
                     Produk::create($data);
                     return redirect('/produk');
+
+                    //error handling jika upload image gagal
                 } catch(\Illuminate\Database\QueryException $e){
                     return $e;
                 } catch (\Throwable $e) {
