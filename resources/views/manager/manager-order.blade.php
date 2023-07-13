@@ -13,8 +13,7 @@
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">Daftar Pembayaran</h5>
-                <div class="table-responsive">
-                    <table id="zero_config" class="table table-striped table-bordered">
+                    <table class="table">
         
                         <thead>
                             <tr>
@@ -63,8 +62,7 @@
                             @endforeach
                         @endforeach
                         </tbody>
-                    </table>
-                </div>
+                    </table>]
             </div>
         </div>
 

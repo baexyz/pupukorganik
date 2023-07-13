@@ -156,26 +156,26 @@
                        </li>
         
                        <li class="sidebar-item"> 
-                           <a class="sidebar-link waves-effect waves-dark sidebar-link" href="pemesanan" aria-expanded="false"><i class="fas fa-shopping-basket" style="margin-right:10px"></i><span class="hide-menu">Daftar Pemesanan</span></a>
+                           <a class="sidebar-link waves-effect waves-dark sidebar-link" href="pemesanan" aria-expanded="false"><i class="fas fa-shopping-basket" style="margin-right:10px"></i><span class="hide-menu">Daftar Order</span></a>
                        </li>
         
-                       <li class="sidebar-item"> 
+                       {{-- <li class="sidebar-item"> 
                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.html" aria-expanded="false"><i class="far fa-money-bill-alt" style="margin-right:10px"></i><span class="hide-menu">Daftar Pembayaran</span></a>
-                       </li>
+                       </li> --}}
         
                        <li class="sidebar-item"> 
-                           <a class="sidebar-link waves-effect waves-dark sidebar-link" href="riwayat-penjualan" aria-expanded="false"><i class=" fas fa-history" style="margin-right:10px"></i><span class="hide-menu">Riwayat Pemesanan</span></a>
+                           <a class="sidebar-link waves-effect waves-dark sidebar-link" href="riwayat-penjualan" aria-expanded="false"><i class=" fas fa-history" style="margin-right:10px"></i><span class="hide-menu">Riwayat Penjualan</span></a>
                        </li>
                     @endcan
         
                    {{-- Pegawai --}}
                     @cannot('Pelanggan')
                        <li class="sidebar-item"> 
-                           <a class="sidebar-link waves-effect waves-dark sidebar-link" href="daftar-pengambilan" aria-expanded="false"><i class="fas fa-truck" style="margin-right:10px"></i><span class="hide-menu">Input Surat Jalan</span></a>
+                           <a class="sidebar-link waves-effect waves-dark sidebar-link" href="daftar-pengambilan" aria-expanded="false"><i class="fas fa-truck" style="margin-right:10px"></i><span class="hide-menu">Daftar Pengambilan</span></a>
                        </li>
         
                        <li class="sidebar-item"> 
-                           <a class="sidebar-link waves-effect waves-dark sidebar-link" href="daftar-surat" aria-expanded="false"><i class="fas fa-paperclip" style="margin-right:10px"></i><span class="hide-menu">Riwayat Surat Jalan</span></a>
+                           <a class="sidebar-link waves-effect waves-dark sidebar-link" href="daftar-surat" aria-expanded="false"><i class="fas fa-paperclip" style="margin-right:10px"></i><span class="hide-menu">Daftar Surat Jalan</span></a>
                        </li>
                     @endcannot
         

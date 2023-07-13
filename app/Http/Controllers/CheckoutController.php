@@ -119,8 +119,8 @@ class CheckoutController extends Controller
                     'currency' => 'IDR',
                     'items' => $produk,
                   ];
-                // $invoice = Invoice::create($params);
-                $invoice['invoice_url'] = "https://google.com";
+                $invoice = Invoice::create($params);
+                // $invoice['invoice_url'] = "https://google.com";
 
                 Pembayaran::create([
                     'id_pemesanan' => $data['id_keranjang'],

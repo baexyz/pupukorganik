@@ -11,9 +11,8 @@
         
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title">Basic Datatable</h5>
-                <div class="table-responsive">
-                    <table id="zero_config" class="table table-striped table-bordered">
+                <h5 class="card-title" style="margin-bottom: 3%">Daftar Pengambilan</h5>
+                    <table class="table">
                         <thead>
                             <tr>
                                 <th>No</th>
@@ -53,7 +52,6 @@
                             @endforeach
                         </tbody>
                     </table>
-                </div>
                 <form id="form1" style="display: none" action="form-surat" method="POST">
                     @csrf                    
                     <input type="text" id="abc" name="id_pengambilan">

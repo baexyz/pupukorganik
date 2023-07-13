@@ -10,7 +10,7 @@
 <div class="row">
   <div class="col-12">
 
-    <a class="btn btn-success" style="width:15%; margin-bottom:1%;" href="/pegawai/tambah">+ Tambah Pegawai</a>
+    <a class="btn btn-success" style="width:15%; margin-bottom:1%; margin-left:85%" href="/pegawai/tambah">+ Tambah Pegawai</a>
 
       
     <div class="card">

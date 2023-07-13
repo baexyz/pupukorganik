@@ -12,8 +12,7 @@
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">Riwayat Penjualan</h5>
-                <div class="table-responsive">
-                    <table id="zero_config" class="table table-striped table-bordered">
+                    <table class="table">
           
                         <thead>
                             <tr>
@@ -47,7 +46,6 @@
                         @endforeach
                         </tbody>   
                     </table>
-                </div>      
             </div>
           </div>
   

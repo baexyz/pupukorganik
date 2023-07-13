@@ -11,7 +11,7 @@
       
     <div class="card">
       <div class="card-body">
-          <h5 class="card-title m-b-0">Daftar Surat Jalan</h5>
+          <h5 class="card-title m-b-0" style="margin-bottom: 3%">Daftar Surat Jalan</h5>
       </div>
       <table class="table">
             <thead>
