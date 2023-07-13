@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('email_pegawai',50)->unique();
             $table->string('password_pegawai',255);
             $table->integer('role');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

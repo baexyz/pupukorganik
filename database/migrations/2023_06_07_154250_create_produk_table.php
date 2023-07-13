@@ -18,6 +18,7 @@ return new class extends Migration
             $table->integer('harga_produk');
             $table->longText('deskripsi_produk');
             $table->string('foto_produk');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
