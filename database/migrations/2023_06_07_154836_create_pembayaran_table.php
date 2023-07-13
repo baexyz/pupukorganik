@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('pembayaran', function (Blueprint $table) {
             $table->id('id_pembayaran');
-
-            $table->foreignId('id_checkout')->constrained('checkout','id_checkout');
-
-            $table->timestamp('waktu_pembayaran');
-            $table->boolean('status_pembayaran');
+            $table->string('id_pemesanan');
+            $table->foreign('id_pemesanan')->references('id_keranjang')->on('keranjang');
+            $table->timestamp('waktu_pembayaran')->nullable();
+            $table->enum('status_pembayaran', ['PENDING', 'PAID', 'EXPIRED']);
+            $table->string('invoice_url');
             $table->timestamps();
         });
     }

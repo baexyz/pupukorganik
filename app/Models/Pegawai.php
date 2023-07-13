@@ -4,10 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Pegawai extends Model
+
+class Pegawai extends Authenticatable
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
 
     protected $table = 'pegawai';
     protected $primaryKey = 'id_pegawai';
@@ -16,10 +19,14 @@ class Pegawai extends Model
     protected $hidden = ['password_pegawai'];
 
 
+    public function getAuthPassword()
+    {
+        return $this->password_pegawai;
+    }
+
     public function suratjalan()
     {
         return $this->hasMany(Suratjalan::class, 'id_suratjalan');
     }
-      
 
 }
