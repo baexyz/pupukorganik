@@ -147,12 +147,31 @@ class ProdukController extends Controller
                 generateUniqueCode($data);
             } else if (count($keranjang) == 1) {
                 $keranjang = $keranjang[0];
+
+                // Check if the id_produk already exists in the row
+                $isProdukNotExist = true;
+                $produk = json_decode($keranjang->produk);
+                foreach ($produk as $item) {
+                  if ($item->id_produk == $id) {
+                    // Increment the kuantitas
+                    $item->kuantitas++;
+                    $isProdukNotExist = false;
+                    break;
+                  }
+                }
+                
+                // If the id_produk does not exist in the row, append it to the array
+                if ($isProdukNotExist) {
+                  $produk[] = ['id_produk' => $id, 'kuantitas' => 1];
+                }
+                
+                // Update the row
                 DB::table('keranjang')
                     ->where('id_keranjang', $keranjang->id_keranjang)
                     ->update([
-                        'produk' => DB::raw("JSON_ARRAY_APPEND(keranjang.produk, '$', CAST('".json_encode(['id_produk' => $id, 'kuantitas' => 1])."' as JSON))"),
+                        'produk' => json_encode($produk),
                         'harga_total_keranjang' => DB::raw("harga_total_keranjang + $harga_produk"),
-                ]);
+                    ]);
             }
             return redirect('/produk');
         }
