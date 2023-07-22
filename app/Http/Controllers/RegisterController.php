@@ -23,7 +23,7 @@ class RegisterController extends Controller
             'nama_user' => 'required|max:255',
             'perusahaan_user' => 'required|max:255',
             'email_user' => ['required', 'email', 'max:255', 'unique:user'],
-            'notelp_user' => 'required',
+            'notelp_user' => 'required|regex:/\+62[0-9]{10}/',
             'alamat_user' => 'required|max:255',
             'password_user' => 'required',
         ]);

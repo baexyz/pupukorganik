@@ -50,7 +50,7 @@
                         @csrf
                         <div class="row p-b-30">
                             <div class="col-12">
-                                @if ($errors->any())
+                                {{-- @if ($errors->any())
                                 <div class="alert alert-danger">
                                     <ul>
                                         @foreach ($errors->all() as $error)
@@ -58,7 +58,7 @@
                                         @endforeach
                                     </ul>
                                 </div>
-                                 @endif
+                                 @endif --}}
 
                                 {{-- INPUT USERNAME --}}
                                 <div class="input-group mb-3">
@@ -67,9 +67,14 @@
                                             <i class="ti-user" style="width:30px"></i>
                                         </span>
                                     </div>
-                                    <input type="text" name="nama_user" class="form-control form-control-lg" placeholder="Nama Pengguna" aria-label="Username" aria-describedby="basic-addon1" required>
+                                    <input type="text" name="nama_user" class="form-control form-control-lg @error('nama_user') is-invalid @enderror" placeholder="Nama Pengguna" aria-label="Username" aria-describedby="basic-addon1" required>
+                                    @error('nama_user')
+                                    <div class="invalid-feedback">
+                                        Harap Input Nama Anda
+                                    </div>
+                                    @enderror
                                 </div>
-
+                                
 
                                 {{-- INPUT PERUSAHAAN --}}
                                 <div class="input-group mb-3">
@@ -78,9 +83,13 @@
                                             <i class="fas fa-warehouse" style="width:30px"></i>
                                         </span>
                                     </div>
-                                    <input type="text" name="perusahaan_user" class="form-control form-control-lg" placeholder="Nama Tempat Usaha" aria-label="Username" aria-describedby="basic-addon1" required>
+                                    <input type="text" name="perusahaan_user" class="form-control form-control-lg @error('perusahaan_user') is-invalid @enderror" placeholder="Nama Tempat Usaha" aria-label="Username" aria-describedby="basic-addon1" required>
+                                    @error('perusahaan_user')
+                                    <div class="invalid-feedback">
+                                        Harap Input Nama Perusahaan Anda
+                                    </div>
+                                    @enderror
                                 </div>
-
 
                                 {{-- INPUT EMAIL --}}
                                 <div class="input-group mb-3">
@@ -89,7 +98,12 @@
                                             <i class="ti-email" style="width:30px"></i>
                                         </span>
                                     </div>
-                                    <input type="email" name="email_user" class="form-control form-control-lg" placeholder="Email" aria-label="Username" aria-describedby="basic-addon1" required>
+                                    <input type="email" name="email_user" class="form-control form-control-lg @error('email_user') is-invalid @enderror" placeholder="Email" aria-label="Username" aria-describedby="basic-addon1" required>
+                                    @error('email_user')
+                                    <div class="invalid-feedback">
+                                        Harap Input Email Anda Sesuai Format
+                                    </div>
+                                    @enderror
                                 </div>
 
 
@@ -99,9 +113,14 @@
                                         <span class="input-group-text bg-success text-white" id="basic-addon1">
                                             <i class="fas fa-phone" style="width:30px"></i></span>
                                     </div>
-                                    <input type="tel" name="notelp_user" class="form-control form-control-lg" placeholder="Nomor Telepon +62" aria-label="Username" aria-describedby="basic-addon1" required>
-                                </div>
+                                    <input type="tel" name="notelp_user" class="form-control form-control-lg @error('notelp_user') is-invalid @enderror" placeholder="Nomor Telepon +62" aria-label="Username" aria-describedby="basic-addon1" required >
+                                    @error('notelp_user')
+                                        <div class="invalid-feedback">
+                                            Harap Input Nomor Telepon Anda dengan Format +62
+                                        </div>
+                                    @enderror
 
+                                </div>
 
                                 {{-- INPUT ALAMAT --}}
                                 <div class="input-group mb-3">
@@ -110,7 +129,13 @@
                                             <i class="fas fa-home" style="width:30px"></i>
                                         </span>
                                     </div>
-                                    <input type="text" name="alamat_user" class="form-control form-control-lg" placeholder="Alamat" aria-label="Username" aria-describedby="basic-addon1" required>
+                                    <input type="text" name="alamat_user" class="form-control form-control-lg  @error('alamat_user') is-invalid @enderror" placeholder="Alamat" aria-label="Username" aria-describedby="basic-addon1" required>
+                                    @error('alamat_user')
+                                        <div class="invalid-feedback">
+                                            Harap Input Alamat Rumah Anda
+                                        </div>
+                                    @enderror
+
                                 </div>
 
 

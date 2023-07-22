@@ -95,7 +95,6 @@ class PegawaiController extends Controller
     public function delete(Request $request, $id){
         $user = $request->user();
         if ($user->can("Manager")) {
-            //Menghapus produk
             $pegawai = Pegawai::find($id);
             //only delete with role 2
             if ($pegawai->role == 2) {
